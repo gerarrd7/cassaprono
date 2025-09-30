@@ -148,7 +148,7 @@ class LuckyJetPredictor {
         const coefficient = this.calculateLuckyJetCoefficient();
         this.displayResult(coefficient);
 
-        this.timeOffset += 3; // Lucky Jet has faster rounds
+        this.timeOffset += 1; // Changed to 1 minute interval
         const currentTime = new Date();
         currentTime.setMinutes(currentTime.getMinutes() + this.timeOffset);
         const formattedTime = currentTime.toLocaleTimeString(this.language || 'fr-FR', {
@@ -187,20 +187,20 @@ class LuckyJetPredictor {
         const random = Math.random();
         let coefficient;
 
-        if (random < 0.45) {
-            // Low multipliers (1.00x - 2.50x) - 45%
+        if (random < 0.65) {
+            // Low multipliers (1.00x - 2.50x) - 65%
             coefficient = 1.00 + Math.random() * 1.50;
-        } else if (random < 0.75) {
-            // Medium multipliers (2.50x - 5.00x) - 30%
+        } else if (random < 0.85) {
+            // Medium multipliers (2.50x - 5.00x) - 20%
             coefficient = 2.50 + Math.random() * 2.50;
-        } else if (random < 0.90) {
-            // High multipliers (5.00x - 15.00x) - 15%
+        } else if (random < 0.95) {
+            // High multipliers (5.00x - 15.00x) - 10%
             coefficient = 5.00 + Math.random() * 10.00;
-        } else if (random < 0.98) {
-            // Very high multipliers (15.00x - 50.00x) - 8%
+        } else if (random < 0.99) {
+            // Very high multipliers (15.00x - 50.00x) - 4%
             coefficient = 15.00 + Math.random() * 35.00;
         } else {
-            // Mega multipliers (50.00x - 200.00x) - 2%
+            // Mega multipliers (50.00x - 200.00x) - 1%
             coefficient = 50.00 + Math.random() * 150.00;
         }
 
