@@ -158,7 +158,7 @@
                 const coefficient = this.calculateCoefficient();
                 this.displayResult(coefficient);
                 
-                this.timeOffset += 5;
+                this.timeOffset += 1; // Changed to 1 minute interval
                 const currentTime = new Date();
                 currentTime.setMinutes(currentTime.getMinutes() + this.timeOffset);
                 const formattedTime = currentTime.toLocaleTimeString(this.language === 'ar' ? 'ar-EG' : this.language === 'ru' ? 'ru-RU' : this.language === 'en' ? 'en-US' : 'fr-FR', {
@@ -195,12 +195,12 @@
                 const base = Math.random();
                 let coefficient;
                 
-                if (base < 0.6) {
-                    coefficient = 1 + Math.random() * 2; // 1.0 - 3.0 (60% de chance)
-                } else if (base < 0.85) {
-                    coefficient = 3 + Math.random() * 5; // 3.0 - 8.0 (25% de chance)
+                if (base < 0.75) {
+                    coefficient = 1 + Math.random() * 2; // 1.0 - 3.0 (75% de chance)
+                } else if (base < 0.92) {
+                    coefficient = 3 + Math.random() * 5; // 3.0 - 8.0 (17% de chance)
                 } else {
-                    coefficient = 8 + Math.random() * 42; // 8.0 - 50.0 (15% de chance)
+                    coefficient = 8 + Math.random() * 42; // 8.0 - 50.0 (8% de chance)
                 }
                 
                 return coefficient.toFixed(2);
