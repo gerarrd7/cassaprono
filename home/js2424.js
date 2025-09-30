@@ -1,1 +1,418 @@
-const _0x55a851=_0x3e97;(function(_0x44c49e,_0x633294){const _0x5aec2d=_0x3e97,_0x539636=_0x44c49e();while(!![]){try{const _0x2cc2ed=parseInt(_0x5aec2d(0x244))/0x1+parseInt(_0x5aec2d(0x25b))/0x2*(-parseInt(_0x5aec2d(0x264))/0x3)+-parseInt(_0x5aec2d(0x1fa))/0x4*(parseInt(_0x5aec2d(0x20b))/0x5)+-parseInt(_0x5aec2d(0x23b))/0x6+parseInt(_0x5aec2d(0x203))/0x7*(parseInt(_0x5aec2d(0x204))/0x8)+-parseInt(_0x5aec2d(0x22e))/0x9+parseInt(_0x5aec2d(0x20d))/0xa;if(_0x2cc2ed===_0x633294)break;else _0x539636['push'](_0x539636['shift']());}catch(_0x96384f){_0x539636['push'](_0x539636['shift']());}}}(_0x24fc,0xe3aa0));function _0x24fc(){const _0x31c3df=['Veuillez\x20configurer\x20la\x20langue\x20dans\x20le\x20bot\x20avant\x20de\x20continuer','hamburgerBtn','categoryOther','Please\x20configure\x20the\x20language\x20in\x20the\x20bot\x20before\x20continuing','Autres\x20Bets','Светлый\x20режим','modeDark','forEach','21fkJcOs','892712NIIfNj','Lucky\x20Jet','Загрузка\x20вашей\x20игры...','pageTitle','Cassa\x20Predictor','game-card','القائمة','10dIQMyQ','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22game-image\x22\x20style=\x22background-image:\x20url(\x27','36044610LRBZtp','lang','Cassa\x20Предиктор','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fas\x20fa-play\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22game-info\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22game-name\x22>','append','profileId','sidebarTitle','add','Crash','home/grile/mines.html','active','Apple\x20of\x20Fortune','div','home/Aviator/gameAvia.html','Chargement\x20de\x20votre\x20jeu...','light-mode','home/LuckyJet/Imogos/LuckyBases.jpg','Our\x20Games','toString','home/Aviator/logo/aviator-game.webp','الوضع\x20الفاتح','get','page-title','sidebar','querySelector','getItem','Тёмный\x20режим','addEventListener','Mode\x20Sombre','getElementById','href','رهانات\x20أخرى','scrollTo','13297707kUDwyb','home/Mundial/imogs/BaseMond.jpeg','scroll','home/Mundial/game.html','fas\x20fa-moon','home/boll/thimble.html','name','crash/vision/logo.jpg','fas\x20fa-sun','ID:\x20','جارٍ\x20تحميل\x20لعبتك...','gamesTitle','Наши\x20игры','9803352ODpTYA','Other\x20Bets','style','dark-mode','sidebar-title','display','Aviator','search','home/grile/vision/BaseMines.jpg','1240620dDKLyQ','loadingText','https://t.me/','closeSidebar','brand-name','Nos\x20Jeux','Dragons','className','home/WildG/imog/west\x20logo.jpg','textContent','profileInfo','createElement','modeText','Loading\x20your\x20game...','home/Dragons/dragonS/game.html','category1win','home/crapaud/imago/baseCrap.jpg','home/apple/stelo/logo\x20.jpg','1win\x20bet','Mundial','classList','modeLight','loadingOverlay','1753654AnjVQD','الوضع\x20الداكن','onclick','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22game-category\x22>','smooth','Gems\x20Mines','Пожалуйста,\x20настройте\x20язык\x20в\x20боте\x20перед\x20продолжением','location','crash/crash.html','3bqhoVT','click','backToTop','Light\x20Mode','home/WildG/wild.html','\x27);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22game-overlay\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22play-btn\x22\x20aria-label=\x22Jouer\x20à\x20','appendChild','setAttribute','Menu','brandName','remove','home/boll/imog/BaseThimbles.jpg','Dark\x20Mode','#modeToggle\x20i','Wild\x20Gost','Thimbles','home/Dragons/dragonS/imag/baseDragons.jpg','body','profileBtn','innerHTML','preventDefault','Другие\x20ставки','518188SGxkjG'];_0x24fc=function(){return _0x31c3df;};return _0x24fc();}const translations={'fr':{'pageTitle':_0x55a851(0x208),'brandName':"Predictor",'sidebarTitle':'Menu','modeDark':_0x55a851(0x229),'modeLight':'Mode\x20Clair','gamesTitle':_0x55a851(0x249),'loadingText':_0x55a851(0x21b),'noLangError':_0x55a851(0x1fb),'category1win':_0x55a851(0x256),'categoryOther':'Autres\x20Bets'},'en':{'pageTitle':_0x55a851(0x208),'brandName':"Predictor",'sidebarTitle':_0x55a851(0x1ec),'modeDark':_0x55a851(0x1f0),'modeLight':_0x55a851(0x267),'gamesTitle':_0x55a851(0x21e),'loadingText':_0x55a851(0x251),'noLangError':_0x55a851(0x1fe),'category1win':'1win\x20bet','categoryOther':_0x55a851(0x23c)},'ru':{'pageTitle':_0x55a851(0x20f),'brandName':'Predictor','sidebarTitle':'Меню','modeDark':_0x55a851(0x227),'modeLight':_0x55a851(0x200),'gamesTitle':_0x55a851(0x23a),'loadingText':_0x55a851(0x206),'noLangError':_0x55a851(0x261),'category1win':'1win\x20ставка','categoryOther':_0x55a851(0x1f9)},'ar':{'pageTitle':'كاسا\x20بريديكتور','brandName':'كاسا\x20بريديكتور','sidebarTitle':_0x55a851(0x20a),'modeDark':_0x55a851(0x25c),'modeLight':_0x55a851(0x221),'gamesTitle':'ألعابنا','loadingText':_0x55a851(0x238),'noLangError':'يرجى\x20تهيئة\x20اللغة\x20في\x20البوت\x20قبل\x20المتابعة','category1win':'رهان\x201win','categoryOther':_0x55a851(0x22c)}},gamesData=[{'name':_0x55a851(0x205),'url':'home/LuckyJet/game.html','image':_0x55a851(0x21d),'category':_0x55a851(0x256)},{'name':_0x55a851(0x241),'url':_0x55a851(0x21a),'image':_0x55a851(0x220),'category':_0x55a851(0x1ff)},{'name':_0x55a851(0x218),'url':'home/apple/applegame.html','image':_0x55a851(0x255),'category':_0x55a851(0x1ff)},{'name':_0x55a851(0x260),'url':_0x55a851(0x216),'image':_0x55a851(0x243),'category':_0x55a851(0x1ff)},{'name':_0x55a851(0x24a),'url':_0x55a851(0x252),'image':_0x55a851(0x1f4),'category':_0x55a851(0x1ff)},{'name':_0x55a851(0x1f3),'url':_0x55a851(0x233),'image':_0x55a851(0x1ef),'category':_0x55a851(0x1ff)},{'name':'Swimp','url':'home/crapaud/swimp.html','image':_0x55a851(0x254),'category':_0x55a851(0x1ff)},{'name':_0x55a851(0x215),'url':_0x55a851(0x263),'image':_0x55a851(0x235),'category':_0x55a851(0x1ff)},{'name':_0x55a851(0x257),'url':_0x55a851(0x231),'image':_0x55a851(0x22f),'category':_0x55a851(0x1ff)},{'name':_0x55a851(0x1f2),'url':_0x55a851(0x268),'image':_0x55a851(0x24c),'category':_0x55a851(0x1ff)}];function sanitizeInput(_0x1f2699){const _0x4c749f=_0x55a851,_0x1c2e9e=document[_0x4c749f(0x24f)](_0x4c749f(0x219));return _0x1c2e9e[_0x4c749f(0x24d)]=_0x1f2699,_0x1c2e9e[_0x4c749f(0x1f7)];}function getParam(_0x11aeb6){const _0x331e1e=_0x55a851,_0x185922=new URLSearchParams(window[_0x331e1e(0x262)][_0x331e1e(0x242)]);return sanitizeInput(_0x185922[_0x331e1e(0x222)](_0x11aeb6)||'');}function getGameUrlWithParams(_0x13fcec){const _0x43a1c5=_0x55a851,_0x9e2e68=getParam(_0x43a1c5(0x20e)),_0x50ca17=getParam('us'),_0x533efe=getParam('i'),_0x415c40=getParam('lk'),_0x40ec55=new URLSearchParams();if(_0x9e2e68)_0x40ec55[_0x43a1c5(0x211)](_0x43a1c5(0x20e),_0x9e2e68);if(_0x50ca17)_0x40ec55[_0x43a1c5(0x211)]('us',_0x50ca17);if(_0x533efe)_0x40ec55[_0x43a1c5(0x211)]('i',_0x533efe);if(_0x415c40)_0x40ec55['append']('lk',_0x415c40);return''+_0x13fcec+(_0x40ec55[_0x43a1c5(0x21f)]()?'?'+_0x40ec55['toString']():'');}function parseProfileFromUrl(){const _0x10b478=_0x55a851,_0x19aa0f=getParam('us'),_0x5d4bc9=getParam('i'),_0xac17ee=getParam('lk'),_0x238ff1=document['getElementById'](_0x10b478(0x1f6)),_0x4b9ddc=document[_0x10b478(0x22a)](_0x10b478(0x24e)),_0x23a271=document['getElementById']('profileName'),_0x3b9d69=document[_0x10b478(0x22a)](_0x10b478(0x212));if(_0x5d4bc9&&_0x19aa0f&&_0xac17ee){const _0x4cb18d=_0x10b478(0x246)+_0xac17ee;_0x238ff1[_0x10b478(0x1eb)](_0x10b478(0x22b),_0x4cb18d),_0x23a271[_0x10b478(0x24d)]=_0x19aa0f,_0x3b9d69[_0x10b478(0x24d)]=_0x10b478(0x237)+_0x5d4bc9,_0x4b9ddc[_0x10b478(0x23d)][_0x10b478(0x240)]='block';}}function applyTranslations(_0x7c5259){const _0x49dd74=_0x55a851,_0x38288c=translations[_0x7c5259]||translations['fr'];document[_0x49dd74(0x22a)](_0x49dd74(0x223))[_0x49dd74(0x24d)]=_0x38288c[_0x49dd74(0x207)],document['getElementById'](_0x49dd74(0x248))[_0x49dd74(0x24d)]=_0x38288c[_0x49dd74(0x1ed)],document[_0x49dd74(0x22a)](_0x49dd74(0x23f))[_0x49dd74(0x24d)]=_0x38288c[_0x49dd74(0x213)],document['getElementById']('games-title')['textContent']=_0x38288c[_0x49dd74(0x239)],document[_0x49dd74(0x22a)]('loadingText')[_0x49dd74(0x24d)]=_0x38288c[_0x49dd74(0x245)];const _0x1b83c0=document[_0x49dd74(0x22a)](_0x49dd74(0x250));_0x1b83c0[_0x49dd74(0x24d)]=document[_0x49dd74(0x1f5)][_0x49dd74(0x258)]['contains']('dark-mode')?_0x38288c[_0x49dd74(0x201)]:_0x38288c[_0x49dd74(0x259)];}function checkLanguageAndRedirect(){const _0x1d46e4=_0x55a851,_0x25529c=getParam(_0x1d46e4(0x20e)),_0x200884=getParam('lk');if(!_0x25529c){const _0x49ec78=document[_0x1d46e4(0x22a)](_0x1d46e4(0x25a)),_0x566807=document[_0x1d46e4(0x22a)](_0x1d46e4(0x245));return _0x566807['textContent']=translations['fr']['noLangError'],_0x49ec78[_0x1d46e4(0x258)][_0x1d46e4(0x214)]('active'),setTimeout(()=>{const _0x515150=_0x1d46e4;_0x200884?window[_0x515150(0x262)]['href']=_0x515150(0x246)+_0x200884:window[_0x515150(0x262)][_0x515150(0x22b)]='https://t.me/defaultBot',setTimeout(()=>{window['close']();},0x64);},0x7d0),![];}return applyTranslations(_0x25529c),!![];}function _0x3e97(_0x4a64e2,_0x2cb229){const _0x24fcdf=_0x24fc();return _0x3e97=function(_0x3e97ba,_0x45f5da){_0x3e97ba=_0x3e97ba-0x1ea;let _0x4298e8=_0x24fcdf[_0x3e97ba];return _0x4298e8;},_0x3e97(_0x4a64e2,_0x2cb229);}function loadMode(){const _0x32d325=_0x55a851,_0x50df2f=localStorage[_0x32d325(0x226)]('theme')||_0x32d325(0x23e),_0x4a309c=document[_0x32d325(0x1f5)],_0x27b048=document[_0x32d325(0x22a)](_0x32d325(0x250)),_0x14438a=document['querySelector'](_0x32d325(0x1f1)),_0x14c759=getParam(_0x32d325(0x20e))||'fr',_0x3f330a=translations[_0x14c759]||translations['fr'];_0x4a309c[_0x32d325(0x258)][_0x32d325(0x1ee)](_0x32d325(0x23e),'light-mode'),_0x4a309c[_0x32d325(0x258)][_0x32d325(0x214)](_0x50df2f),_0x27b048[_0x32d325(0x24d)]=_0x50df2f==='dark-mode'?_0x3f330a['modeDark']:_0x3f330a[_0x32d325(0x259)],_0x14438a['className']=_0x50df2f===_0x32d325(0x23e)?_0x32d325(0x232):'fas\x20fa-sun';}function saveMode(_0x373897){localStorage['setItem']('theme',_0x373897);}function toggleMode(){const _0x44aca0=_0x55a851,_0x41e733=document[_0x44aca0(0x1f5)],_0x28ba8f=document[_0x44aca0(0x22a)]('modeText'),_0x5aba0e=document[_0x44aca0(0x225)](_0x44aca0(0x1f1)),_0x546b49=getParam(_0x44aca0(0x20e))||'fr',_0x517adf=translations[_0x546b49]||translations['fr'];_0x41e733[_0x44aca0(0x258)]['contains'](_0x44aca0(0x23e))?(_0x41e733['classList'][_0x44aca0(0x1ee)](_0x44aca0(0x23e)),_0x41e733[_0x44aca0(0x258)][_0x44aca0(0x214)](_0x44aca0(0x21c)),_0x28ba8f[_0x44aca0(0x24d)]=_0x517adf[_0x44aca0(0x259)],_0x5aba0e['className']=_0x44aca0(0x236),saveMode(_0x44aca0(0x21c))):(_0x41e733['classList']['remove']('light-mode'),_0x41e733[_0x44aca0(0x258)][_0x44aca0(0x214)](_0x44aca0(0x23e)),_0x28ba8f['textContent']=_0x517adf[_0x44aca0(0x201)],_0x5aba0e[_0x44aca0(0x24b)]=_0x44aca0(0x232),saveMode('dark-mode'));}function showLoading(){const _0x2074a8=_0x55a851,_0x224582=document[_0x2074a8(0x22a)](_0x2074a8(0x25a));_0x224582['classList']['add'](_0x2074a8(0x217));}function hideLoading(){const _0x14b566=_0x55a851,_0x3262b2=document['getElementById']('loadingOverlay');_0x3262b2[_0x14b566(0x258)][_0x14b566(0x1ee)](_0x14b566(0x217));}function handleGameClick(_0x55a71c,_0x4679d0){_0x4679d0['preventDefault'](),showLoading(),setTimeout(()=>{const _0x1eecc3=_0x3e97;hideLoading(),window[_0x1eecc3(0x262)]['href']=getGameUrlWithParams(_0x55a71c);},0x7d0);}function populateGames(){const _0x5a816e=_0x55a851,_0xe281d3=document[_0x5a816e(0x22a)]('gamesGrid'),_0x460fd7=getParam(_0x5a816e(0x20e))||'fr',_0x2e8273=translations[_0x460fd7]||translations['fr'];_0xe281d3[_0x5a816e(0x1f7)]='',gamesData[_0x5a816e(0x202)](_0x3ccc58=>{const _0x3bf279=_0x5a816e,_0x3cb74b=document[_0x3bf279(0x24f)]('div');_0x3cb74b[_0x3bf279(0x24b)]=_0x3bf279(0x209),_0x3cb74b[_0x3bf279(0x25d)]=_0x176211=>handleGameClick(_0x3ccc58['url'],_0x176211);const _0x1e039b=_0x3ccc58['category']==='1win\x20bet'?_0x2e8273[_0x3bf279(0x253)]:_0x2e8273[_0x3bf279(0x1fd)];_0x3cb74b[_0x3bf279(0x1f7)]=_0x3bf279(0x20c)+_0x3ccc58['image']+_0x3bf279(0x269)+_0x3ccc58['name']+_0x3bf279(0x210)+_0x3ccc58[_0x3bf279(0x234)]+_0x3bf279(0x25e)+_0x1e039b+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',_0xe281d3[_0x3bf279(0x1ea)](_0x3cb74b);});}function handleScroll(){const _0x57f127=_0x55a851,_0x117d33=document[_0x57f127(0x22a)](_0x57f127(0x266));window['scrollY']>0x12c?_0x117d33[_0x57f127(0x258)]['add'](_0x57f127(0x217)):_0x117d33[_0x57f127(0x258)][_0x57f127(0x1ee)](_0x57f127(0x217));}document[_0x55a851(0x228)]('DOMContentLoaded',()=>{const _0x13164c=_0x55a851;if(!checkLanguageAndRedirect())return;parseProfileFromUrl(),loadMode(),populateGames();const _0x4c208e=document[_0x13164c(0x22a)]('modeToggle');_0x4c208e[_0x13164c(0x228)]('click',_0x737864=>{const _0x24a198=_0x13164c;_0x737864[_0x24a198(0x1f8)](),toggleMode();});const _0x5c2c76=document[_0x13164c(0x22a)](_0x13164c(0x1fc)),_0x6621ae=document[_0x13164c(0x22a)](_0x13164c(0x224)),_0x52baf8=document[_0x13164c(0x22a)](_0x13164c(0x247)),_0x2f8284=document['getElementById']('overlay');_0x5c2c76[_0x13164c(0x228)]('click',()=>{const _0x368b84=_0x13164c;_0x6621ae[_0x368b84(0x258)][_0x368b84(0x214)](_0x368b84(0x217)),_0x2f8284[_0x368b84(0x258)]['add'](_0x368b84(0x217));}),_0x52baf8[_0x13164c(0x228)]('click',()=>{const _0x3b3be1=_0x13164c;_0x6621ae[_0x3b3be1(0x258)][_0x3b3be1(0x1ee)](_0x3b3be1(0x217)),_0x2f8284['classList']['remove'](_0x3b3be1(0x217));}),_0x2f8284[_0x13164c(0x228)](_0x13164c(0x265),()=>{const _0x4d4816=_0x13164c;_0x6621ae[_0x4d4816(0x258)][_0x4d4816(0x1ee)](_0x4d4816(0x217)),_0x2f8284['classList'][_0x4d4816(0x1ee)](_0x4d4816(0x217));});const _0x558c81=document[_0x13164c(0x22a)]('backToTop');_0x558c81[_0x13164c(0x228)](_0x13164c(0x265),()=>{const _0x107a92=_0x13164c;window[_0x107a92(0x22d)]({'top':0x0,'behavior':_0x107a92(0x25f)});}),window[_0x13164c(0x228)](_0x13164c(0x230),handleScroll);});
+   // Configuration des traductions multilingues
+        const translations = {
+            'fr': {
+                'pageTitle': 'Cassa Predictor',
+                'brandName': 'Predictor',
+                'sidebarTitle': 'Menu',
+                'modeDark': 'Mode Sombre',
+                'modeLight': 'Mode Clair',
+                'gamesTitle': 'Nos Jeux ',
+                'loadingText': 'Chargement de votre jeu...',
+                'noLangError': 'Veuillez configurer la langue dans le bot avant de continuer',
+                'category1win': '1win bet',
+                'categoryOther': 'Autres Bets'
+            },
+            'en': {
+                'pageTitle': 'Cassa Predictor',
+                'brandName': 'Predictor',
+                'sidebarTitle': 'Menu',
+                'modeDark': 'Dark Mode',
+                'modeLight': 'Light Mode',
+                'gamesTitle': 'Our  Games',
+                'loadingText': 'Loading your game...',
+                'noLangError': 'Please configure the language in the bot before continuing',
+                'category1win': '1win bet',
+                'categoryOther': 'Other Bets'
+            },
+            'ru': {
+                'pageTitle': 'Cassa Предиктор',
+                'brandName': 'Предиктор',
+                'sidebarTitle': 'Меню',
+                'modeDark': 'Тёмный режим',
+                'modeLight': 'Светлый режим',
+                'gamesTitle': 'Наши Премиум Игры',
+                'loadingText': 'Загрузка вашей игры...',
+                'noLangError': 'Пожалуйста, настройте язык в боте перед продолжением',
+                'category1win': '1win ставка',
+                'categoryOther': 'Другие ставки'
+            },
+            'ar': {
+                'pageTitle': 'كاسا بريديكتور',
+                'brandName': 'بريديكتور',
+                'sidebarTitle': 'القائمة',
+                'modeDark': 'الوضع الداكن',
+                'modeLight': 'الوضع الفاتح',
+                'gamesTitle': 'ألعابنا المميزة',
+                'loadingText': 'جارٍ تحميل لعبتك...',
+                'noLangError': 'يرجى تهيئة اللغة في البوت قبل المتابعة',
+                'category1win': 'رهان 1win',
+                'categoryOther': 'رهانات أخرى'
+            }
+        };
+
+        // Configuration des jeux
+        const gamesData = [
+            {
+                'name': 'Lucky Jet',
+                'url': 'home/LuckyJet/game.html',
+                'image': 'home/LuckyJet/Imogos/LuckyBases.jpg',
+                'category': '1win bet'
+            },
+            {
+                'name': 'Aviator',
+                'url': 'home/Aviator/gameAvia.html',
+                'image': 'home/Aviator/logo/aviator-game.webp',
+                'category': 'Autres Bets'
+            },
+            {
+                'name': 'Apple of Fortune',
+                'url': 'home/apple/applegame.html',
+                'image': 'home/apple/stelo/logo .jpg',
+                'category': 'Autres Bets'
+            },
+            {
+                'name': 'Gems Mines',
+                'url': 'home/grile/mines.html',
+                'image': 'home/grile/vision/BaseMines.jpg',
+                'category': 'Autres Bets'
+            },
+            {
+                'name': 'Dragons',
+                'url': 'home/Dragons/dragonS/game.html',
+                'image': 'home/Dragons/dragonS/imag/baseDragons.jpg',
+                'category': 'Autres Bets'
+            },
+            {
+                'name': 'Crash',
+                'url': 'crash/crash.html',
+                'image': 'crash/vision/logo.jpg',
+                'category': 'Autres Bets'
+            },
+            {
+                'name': 'Swimp',
+                'url': 'home/crapaud/swimp.html',
+                'image': 'home/crapaud/imago/baseCrap.jpg',
+                'category': 'Autres Bets'
+            },
+            {
+                'name': 'Mundial',
+                'url': 'home/Mundial/game.html',
+                'image': 'home/Mundial/imogs/BaseMond.jpeg',
+                'category': 'Autres Bets'
+            },
+            {
+                'name': 'Thimbles',
+                'url': 'home/boll/thimble.html',
+                'image': 'home/boll/imog/BaseThimbles.jpg',
+                'category': 'Autres Bets'
+            },
+            {
+                'name': 'Wild Ghost',
+                'url': 'home/WildG/wild.html',
+                'image': 'home/WildG/imog/west logo.jpg',
+                'category': 'Autres Bets'
+            }
+        ];
+
+        // Génération des particules
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = window.innerWidth > 768 ? 15 : 8;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 60 + 20;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Utilitaires
+        function sanitizeInput(input) {
+            const tempDiv = document.createElement('div');
+            tempDiv.textContent = input;
+            return tempDiv.innerHTML;
+        }
+
+        function getParam(paramName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return sanitizeInput(urlParams.get(paramName) || '');
+        }
+
+        function getGameUrlWithParams(gameUrl) {
+            const lang = getParam('lang');
+            const username = getParam('us');
+            const userId = getParam('i');
+            const telegramLink = getParam('lk');
+            const params = new URLSearchParams();
+
+            if (lang) params.append('lang', lang);
+            if (username) params.append('us', username);
+            if (userId) params.append('i', userId);
+            if (telegramLink) params.append('lk', telegramLink);
+
+            return gameUrl + (params.toString() ? '?' + params.toString() : '');
+        }
+
+        // Profil utilisateur
+        function parseProfileFromUrl() {
+            const username = getParam('us');
+            const userId = getParam('i');
+            const telegramLink = getParam('lk');
+            
+            const profileBtn = document.getElementById('profileBtn');
+            const profileInfo = document.getElementById('profileInfo');
+            const profileName = document.getElementById('profileName');
+            const profileId = document.getElementById('profileId');
+
+            if (userId && username && telegramLink) {
+                const telegramUrl = 'https://t.me/' + telegramLink;
+                profileBtn.setAttribute('href', telegramUrl);
+                profileInfo.style.display = 'none';
+            }
+        }
+
+        // Traductions
+        function applyTranslations(language) {
+            const texts = translations[language] || translations['fr'];
+            
+            document.getElementById('page-title').textContent = texts.pageTitle;
+            document.getElementById('brand-name').textContent = texts.brandName;
+            document.getElementById('sidebar-title').textContent = texts.sidebarTitle;
+            document.getElementById('games-title').textContent = texts.gamesTitle;
+            document.getElementById('loadingText').textContent = texts.loadingText;
+
+            const modeText = document.getElementById('modeText');
+            modeText.textContent = document.body.classList.contains('dark-mode') ? 
+                texts.modeDark : texts.modeLight;
+        }
+
+        function checkLanguageAndRedirect() {
+            const language = getParam('lang');
+            const telegramLink = getParam('lk');
+
+            if (!language) {
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                const loadingText = document.getElementById('loadingText');
+                
+                loadingText.textContent = translations['fr']['noLangError'];
+                loadingOverlay.classList.add('active');
+                
+                setTimeout(() => {
+                    if (telegramLink) {
+                        window.location.href = 'https://t.me/' + telegramLink;
+                    } else {
+                        window.location.href = 'https://t.me/defaultBot';
+                    }
+                    setTimeout(() => {
+                        window.close();
+                    }, 100);
+                }, 2000);
+                
+                return false;
+            }
+            
+            applyTranslations(language);
+            return true;
+        }
+
+        // Mode sombre/clair
+        function loadMode() {
+            const savedTheme = localStorage.getItem('theme') || 'dark-mode';
+            const body = document.body;
+            const modeText = document.getElementById('modeText');
+            const modeIcon = document.querySelector('#modeToggle i');
+            const language = getParam('lang') || 'fr';
+            const texts = translations[language] || translations['fr'];
+
+            body.classList.remove('dark-mode', 'light-mode');
+            body.classList.add(savedTheme);
+            
+            modeText.textContent = savedTheme === 'dark-mode' ? 
+                texts.modeDark : texts.modeLight;
+            modeIcon.className = savedTheme === 'dark-mode' ? 
+                'fas fa-moon' : 'fas fa-sun';
+        }
+
+        function saveMode(theme) {
+            localStorage.setItem('theme', theme);
+        }
+
+        function toggleMode() {
+            const body = document.body;
+            const modeText = document.getElementById('modeText');
+            const modeIcon = document.querySelector('#modeToggle i');
+            const language = getParam('lang') || 'fr';
+            const texts = translations[language] || translations['fr'];
+
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                modeText.textContent = texts.modeLight;
+                modeIcon.className = 'fas fa-sun';
+                saveMode('light-mode');
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                modeText.textContent = texts.modeDark;
+                modeIcon.className = 'fas fa-moon';
+                saveMode('dark-mode');
+            }
+        }
+
+        // Loading
+        function showLoading() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.classList.add('active');
+        }
+
+        function hideLoading() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.classList.remove('active');
+        }
+
+        // Gestion des jeux
+        function handleGameClick(gameUrl, event) {
+            event.preventDefault();
+            showLoading();
+            
+            setTimeout(() => {
+                hideLoading();
+                window.location.href = getGameUrlWithParams(gameUrl);
+            }, 1500);
+        }
+
+        function populateGames() {
+            const gamesGrid = document.getElementById('gamesGrid');
+            const language = getParam('lang') || 'fr';
+            const texts = translations[language] || translations['fr'];
+            
+            gamesGrid.innerHTML = '';
+            
+            gamesData.forEach((game, index) => {
+                const gameCard = document.createElement('div');
+                gameCard.className = 'game-card';
+                gameCard.onclick = (event) => handleGameClick(game.url, event);
+
+                const categoryText = game.category === '1win bet' ? 
+                    texts.category1win : texts.categoryOther;
+
+                gameCard.innerHTML = `
+                    <div class="game-image" style="background-image: url('${game.image}');">
+                        <div class="game-overlay">
+                            <div class="play-btn" aria-label="Jouer à ${game.name}">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-name">${game.name}</div>
+                        <div class="game-category">${categoryText}</div>
+                    </div>
+                `;
+                
+                gamesGrid.appendChild(gameCard);
+            });
+        }
+
+        // Scroll effects
+        function handleScroll() {
+            const backToTop = document.getElementById('backToTop');
+            const topNav = document.getElementById('topNav');
+            
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+            
+            if (window.scrollY > 50) {
+                topNav.classList.add('scrolled');
+            } else {
+                topNav.classList.remove('scrolled');
+            }
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            // Créer les particules
+            createParticles();
+            
+            // Vérification de la langue
+            if (!checkLanguageAndRedirect()) return;
+
+            // Initialisation des composants
+            parseProfileFromUrl();
+            loadMode();
+            populateGames();
+
+            // Mode toggle
+            const modeToggle = document.getElementById('modeToggle');
+            modeToggle.addEventListener('click', (event) => {
+                event.preventDefault();
+                toggleMode();
+            });
+
+            // Sidebar
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const sidebar = document.getElementById('sidebar');
+            const closeSidebar = document.getElementById('closeSidebar');
+            const overlay = document.getElementById('overlay');
+
+            hamburgerBtn.addEventListener('click', () => {
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+            });
+
+            closeSidebar.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+
+            overlay.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+
+            // Back to top
+            const backToTop = document.getElementById('backToTop');
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    'top': 0,
+                    'behavior': 'smooth'
+                });
+            });
+
+            // Scroll listener
+            window.addEventListener('scroll', handleScroll);
+
+            // Optimisation des performances
+            let ticking = false;
+            function requestTick() {
+                if (!ticking) {
+                    window.requestAnimationFrame(handleScroll);
+                    ticking = true;
+                }
+            }
+            window.addEventListener('scroll', () => {
+                requestTick();
+                ticking = false;
+            });
+        });
+
+        // Préchargement des images
+        function preloadImages() {
+            gamesData.forEach(game => {
+                const img = new Image();
+                img.src = game.image;
+            });
+        }
+        
+        window.addEventListener('load', preloadImages);
