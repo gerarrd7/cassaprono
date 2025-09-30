@@ -209,7 +209,7 @@
                     if (telegramLink) {
                         window.location.href = 'https://t.me/' + telegramLink;
                     } else {
-                        window.location.href = 'https://t.me/defaultBot';
+                        window.location.href = 'https://t.me/PREDBOX2ROBOT';
                     }
                     setTimeout(() => {
                         window.close();
