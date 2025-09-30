@@ -67,12 +67,10 @@ class LuckyJetPredictor {
         }
 
         this.config = {
-            particleCount: 0,
-            maxParticles: 25,
-            particleInterval: 2000,
-            loadingDuration: 4000,
-            alertDuration: 5000,
-            coefficientRange: { min: 1.0, max: 10.0 }
+            particleInterval: 800,
+            alertDuration: 3000,
+            loadingDuration: 2000,
+            coefficientRange: { min: 1.10, max: 8.50 } // Reduced max from higher values
         };
 
         this.appState = {
@@ -194,8 +192,21 @@ class LuckyJetPredictor {
     }
 
     generateCoefficient() {
-        const { min, max } = this.config.coefficientRange;
-        return (Math.random() * (max - min) + min).toFixed(2);
+        const random = Math.random();
+        let coefficient;
+        
+        if (random < 0.70) {
+            // Low coefficients (1.10 - 2.50) - 70%
+            coefficient = 1.10 + Math.random() * 1.40;
+        } else if (random < 0.90) {
+            // Medium coefficients (2.50 - 5.00) - 20%
+            coefficient = 2.50 + Math.random() * 2.50;
+        } else {
+            // High coefficients (5.00 - 8.50) - 10%
+            coefficient = 5.00 + Math.random() * 3.50;
+        }
+        
+        return coefficient.toFixed(2);
     }
 
     handleNextRound() {
@@ -213,10 +224,10 @@ class LuckyJetPredictor {
         const now = new Date();
 
         if (this.appState.lastDisplayedTime) {
-            this.appState.lastDisplayedTime.setMinutes(this.appState.lastDisplayedTime.getMinutes() + 5);
+            this.appState.lastDisplayedTime.setMinutes(this.appState.lastDisplayedTime.getMinutes() + 1);
         } else {
             this.appState.lastDisplayedTime = new Date(now.getTime());
-            this.appState.lastDisplayedTime.setMinutes(this.appState.lastDisplayedTime.getMinutes() + 5);
+            this.appState.lastDisplayedTime.setMinutes(this.appState.lastDisplayedTime.getMinutes() + 1);
         }
 
         this.triggerPrediction();
