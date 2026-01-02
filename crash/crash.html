@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title id="page-title">Crash - Predictor Pro</title>
+    <!-- Favicon temporaire en ligne -->
+    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💥</text></svg>" type="image/x-icon">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2922658164336135"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/sty.css">
+</head>
+<body>
+    <div class="flight-particles" id="fparticles"></div>
+
+    <div class="app-container" id="app-container">
+        <header class="header">
+            <h1 class="app-title" id="app-title">Crash</h1>
+            <img src="https://i.ibb.co/3yp0dbX/Background_Eraser-2023-110729349.png" alt="Lucky Jet Logo" class="app-logo">
+        </header>
+        
+        <!-- Publicité Bannière -->
+        <div style="margin: 25px 0; padding: 15px; text-align: center; background: rgba(255,255,255,0.1); border-radius: 8px; border: 1px solid rgba(255,255,255,0.15);">
+            <div style="font-size: 11px; color: rgba(255,255,255,0.7); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Publicité</div>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2922658164336135"
+                 data-ad-slot="8792190741"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="main-card">
+            <div class="prediction-circle">
+                <div class="circle-content" id="circle-content">
+                    <div class="loading-text">
+                        <span>Loading...</span>
+                        <div class="loading-dots">
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="predictor-section">
+                <div class="predictor-title" id="predictor-title">Predictor Crash</div>
+                <div id="time-display" class="time-display"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button class="btn btn-primary" id="next-round-btn">🎯 Next Round</button>
+        <button class="btn btn-secondary" id="back-btn">← Retour</button>
+    </div>
+
+    <div id="alert" class="alert warning">
+        <strong>⏳ Patience requise</strong><br>
+        Veuillez patienter pendant <span id="time-remaining">...</span> avant d'obtenir le coefficient suivant
+    </div>
+
+    <div class="error-page" id="error-page">
+        <div class="error-icon">❗️☠️</div>
+        <div class="error-text" id="error-message">Désolé, an error occurred</div>
+        <button class="btn btn-primary" id="error-return-btn">🔄 Retour</button>
+    </div>
+    
+    <!-- Rectangle publicitaire avec croix -->
+    <div style="position: fixed; bottom: 20px; right: 20px; width: 280px; background: rgba(0,0,0,0.9); border-radius: 12px; border: 2px solid rgba(255,255,255,0.2); backdrop-filter: blur(10px); z-index: 1000; display: none;" id="rectangleAd">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px 5px;">
+            <div style="font-size: 10px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px;">Publicité</div>
+            <button style="background: rgba(255,255,255,0.1); border: none; color: rgba(255,255,255,0.8); width: 22px; height: 22px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; font-size: 12px;" id="closeRectangleAd">×</button>
+        </div>
+        <div style="padding: 0 12px 12px;">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2922658164336135" data-ad-slot="3919138015" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+    
+    <script src="cash.js"></script>
+    <script>
+        function manageRectangleAd() {
+            const rectangleAd = document.getElementById('rectangleAd');
+            const closeBtn = document.getElementById('closeRectangleAd');
+            const lastClosed = localStorage.getItem('rectAdClosed');
+            const now = Date.now();
+            
+            if (lastClosed && (now - parseInt(lastClosed)) < 86400000) return;
+            if (Math.random() < 0.2) {
+                setTimeout(() => {
+                    rectangleAd.style.display = 'block';
+                }, Math.random() * 5000 + 10000);
+            }
+            
+            closeBtn.addEventListener('click', () => {
+                rectangleAd.style.display = 'none';
+                localStorage.setItem('rectAdClosed', now.toString());
+            });
+            
+            setTimeout(() => {
+                if (rectangleAd.style.display === 'block') {
+                    rectangleAd.style.display = 'none';
+                }
+            }, 25000);
+        }
+        
+        window.addEventListener('load', () => {
+            setTimeout(manageRectangleAd, 3000);
+        });
+    </script>
+</body>
+</html>
