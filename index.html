@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title id="page-title">Cassa Predictor</title>
     <link rel="shortcut icon" href="vision/image.png" type="image/x-icon">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Font Awesome alternative -->
+    <link href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     
     <!-- Google AdSense -->
@@ -515,10 +516,13 @@
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            min-width: 300px;
+            width: 100%;
         }
 
         .ad-container.header-ad {
             margin: 20px 0 40px 0;
+            min-height: 280px;
         }
 
         .ad-container.middle-ad {
@@ -1411,12 +1415,11 @@
     <!-- Contenu principal -->
     <main class="container">
         <h1 class="section-title" id="games-title">Nos Jeux Premium</h1>
-        
-
+        <!-- Publicité Bannière Header -->
         <div class="ad-container header-ad">
             <div class="ad-label">Publicité</div>
             <ins class="adsbygoogle"
-                 style="display:block; min-height: 250px; min-width: 300px;"
+                 style="display:block; width:100%; min-width:320px; min-height:250px;"
                  data-ad-client="ca-pub-2922658164336135"
                  data-ad-slot="8792190741"
                  data-ad-format="auto"
