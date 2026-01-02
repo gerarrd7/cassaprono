@@ -1419,14 +1419,11 @@
         <div class="ad-container header-ad">
             <div class="ad-label">Publicité</div>
             <ins class="adsbygoogle"
-                 style="display:block; width:100%; min-width:320px; min-height:250px;"
+                 style="display:block; width:100%; height:250px;"
                  data-ad-client="ca-pub-2922658164336135"
                  data-ad-slot="8792190741"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+                 data-ad-format="rectangle"
+                 data-full-width-responsive="false"></ins>
         </div>
         
         <section>
@@ -1443,14 +1440,11 @@
         <div class="ad-rectangle-content">
             <!-- Rectangle publicitaire moyen -->
             <ins class="adsbygoogle"
-                 style="display:block"
+                 style="display:block; width:280px; height:250px;"
                  data-ad-client="ca-pub-2922658164336135"
                  data-ad-slot="3919138015"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+                 data-ad-format="rectangle"
+                 data-full-width-responsive="false"></ins>
         </div>
     </div>
 
@@ -1458,6 +1452,18 @@
     
     <!-- Script pour gérer l'affichage du rectangle publicitaire -->
     <script>
+        // Initialiser AdSense après chargement complet
+        window.addEventListener('load', () => {
+            // Délai pour s'assurer que tout est rendu
+            setTimeout(() => {
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } catch(e) {
+                    console.log('AdSense bannière:', e.message);
+                }
+            }, 1000);
+        });
+
         // Gestion de l'affichage du rectangle publicitaire (rare)
         function manageRectangleAd() {
             const rectangleAd = document.getElementById('rectangleAd');
@@ -1480,6 +1486,12 @@
                 // Délai avant d'afficher (10-15 secondes)
                 setTimeout(() => {
                     rectangleAd.classList.add('visible');
+                    // Initialiser AdSense pour le rectangle
+                    try {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    } catch(e) {
+                        console.log('AdSense rectangle:', e.message);
+                    }
                 }, Math.random() * 5000 + 10000);
             }
             
