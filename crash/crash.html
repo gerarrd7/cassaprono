@@ -18,12 +18,12 @@
     </script>
     <script src="https://www.highperformanceformat.com/80500c3d92cf6c81266e26d9d750dc82/invoke.js"></script>
     
-    <!-- Popunder (affichage limité - 5 fois par heure) -->
+    <!-- Popunder (affichage limité - 3 fois par heure) -->
     <script>
       (function() {
         const now = Date.now();
         const oneHour = 60 * 60 * 1000;
-        const maxPopunders = 5;
+        const maxPopunders = 6;
         
         let popunderHistory = JSON.parse(localStorage.getItem('popunderHistory') || '[]');
         popunderHistory = popunderHistory.filter(time => (now - time) < oneHour);
@@ -50,42 +50,49 @@
         </header>
         
         <!-- Publicité Bannière -->
-        <div class="ad-banner" style="margin: 20px 0; padding: 10px; text-align: center; background: rgba(255,255,255,0.1); border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); max-width: 320px; margin-left: auto; margin-right: auto;">
-            <div style="font-size: 10px; color: rgba(255,255,255,0.6); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Publicité</div>
-            <script>
-              atOptions = {
-                'key' : '80500c3d92cf6c81266e26d9d750dc82',
-                'format' : 'iframe',
-                'height' : 60,
-                'width' : 468,
-                'params' : {}
-              };
-            </script>
-            <script src="https://www.highperformanceformat.com/80500c3d92cf6c81266e26d9d750dc82/invoke.js"></script>
+        <div class="ad-banner" style="margin: 15px auto; padding: 12px; text-align: center; background: rgba(255,255,255,0.12); border-radius: 12px; border: 1px solid rgba(255,255,255,0.25); width: calc(100% - 20px); max-width: 490px; box-sizing: border-box; overflow: hidden; position: relative; z-index: 10;">
+            <div style="font-size: 9px; color: rgba(255,255,255,0.5); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;">Publicité</div>
+            <div style="display: flex; justify-content: center; align-items: center; overflow: hidden; max-width: 100%;">
+                <script>
+                  atOptions = {
+                    'key' : '80500c3d92cf6c81266e26d9d750dc82',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highperformanceformat.com/80500c3d92cf6c81266e26d9d750dc82/invoke.js"></script>
+            </div>
         </div>
-<style>
-@media (max-width: 480px) {
-    .ad-banner {
-        max-width: 280px !important;
-        padding: 8px !important;
-        margin: 15px 0 !important;
-    }
-    .ad-banner ins {
-        width: 250px !important;
-        height: 80px !important;
-    }
-}
-@media (max-width: 320px) {
-    .ad-banner {
-        max-width: 260px !important;
-        padding: 6px !important;
-    }
-    .ad-banner ins {
-        width: 200px !important;
-        height: 70px !important;
-    }
-}
-</style>
+        <style>
+          .ad-banner {
+              transform: scale(1);
+              transform-origin: center top;
+          }
+          .ad-banner iframe {
+              max-width: 100% !important;
+              transform-origin: center center;
+          }
+          @media (max-width: 500px) {
+              .ad-banner {
+                  transform: scale(0.85);
+                  margin: 10px auto !important;
+                  padding: 10px !important;
+              }
+          }
+          @media (max-width: 400px) {
+              .ad-banner {
+                  transform: scale(0.72);
+                  margin: 5px auto !important;
+              }
+          }
+          @media (max-width: 350px) {
+              .ad-banner {
+                  transform: scale(0.65);
+              }
+          }
+        </style>
 
         <div class="main-card">
             <div class="prediction-circle">

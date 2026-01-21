@@ -22,13 +22,13 @@
     </script>
     <script src="https://www.highperformanceformat.com/80500c3d92cf6c81266e26d9d750dc82/invoke.js"></script>
     
-    <!-- Popunder (affichage limité - 5 fois par heure) -->
+    <!-- Popunder (affichage limité - 3 fois par heure) -->
     <script>
       // Contrôle de fréquence du popunder
       (function() {
         const now = Date.now();
         const oneHour = 60 * 60 * 1000;
-        const maxPopunders = 5;
+        const maxPopunders = 6;
         
         // Récupérer l'historique des popunders
         let popunderHistory = JSON.parse(localStorage.getItem('popunderHistory') || '[]');
