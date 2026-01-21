@@ -28,7 +28,7 @@
       (function() {
         const now = Date.now();
         const oneHour = 60 * 60 * 1000;
-        const maxPopunders = 6;
+        const maxPopunders = 3;
         
         // Récupérer l'historique des popunders
         let popunderHistory = JSON.parse(localStorage.getItem('popunderHistory') || '[]');
@@ -580,14 +580,20 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 300px;
+            width: auto;
+            max-width: 490px;
+            min-width: 320px;
             background: rgba(0, 0, 0, 0.9);
-            border-radius: 15px;
+            border-radius: 12px;
             border: 2px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(15px);
             z-index: 1000;
             display: none;
             animation: slideInUp 0.5s ease-out;
+            box-sizing: border-box;
+            overflow: hidden;
+            transform: scale(1);
+            transform-origin: bottom right;
         }
 
         .ad-rectangle.visible {
@@ -598,7 +604,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 15px 5px;
+            padding: 8px 12px 4px;
         }
 
         .ad-rectangle-label {
@@ -630,7 +636,38 @@
         }
 
         .ad-rectangle-content {
-            padding: 0 15px 15px;
+            padding: 0 12px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .ad-rectangle iframe {
+            max-width: 100% !important;
+            transform-origin: center center;
+        }
+        
+        @media (max-width: 500px) {
+            .ad-rectangle {
+                transform: scale(0.85);
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .ad-rectangle {
+                transform: scale(0.72);
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 350px) {
+            .ad-rectangle {
+                transform: scale(0.65);
+            }
         }
 
         @keyframes slideInUp {
