@@ -10,45 +10,6 @@
     <link href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     
-    <!-- Bannière publicitaire -->
-    <script>
-      atOptions = {
-        'key' : '80500c3d92cf6c81266e26d9d750dc82',
-        'format' : 'iframe',
-        'height' : 60,
-        'width' : 468,
-        'params' : {}
-      };
-    </script>
-    <script src="https://www.highperformanceformat.com/80500c3d92cf6c81266e26d9d750dc82/invoke.js"></script>
-    
-    <!-- Script bar social -->
-    <script src="https://pl28535363.effectivegatecpm.com/ce/e8/df/cee8df1fb2b4e2a11d0cc85eeee87d6e.js"></script>
-    
-    <!-- Popunder (affichage limité - 3 fois par heure) -->
-    <script>
-      // Contrôle de fréquence du popunder
-      (function() {
-        const now = Date.now();
-        const oneHour = 60 * 60 * 1000;
-        const maxPopunders = 3;
-        
-        // Récupérer l'historique des popunders
-        let popunderHistory = JSON.parse(localStorage.getItem('popunderHistory') || '[]');
-        
-        // Nettoyer les entrées de plus d'une heure
-        popunderHistory = popunderHistory.filter(time => (now - time) < oneHour);
-        
-        // Vérifier si on peut afficher un popunder
-        if (popunderHistory.length < maxPopunders) {
-          popunderHistory.push(now);
-          localStorage.setItem('popunderHistory', JSON.stringify(popunderHistory));
-          var s = document.createElement('script');
-          s.src = 'https://pl28531604.effectivegatecpm.com/a3/1b/17/a31b171f8f08db3e985757183e37a5b5.js';
-          document.head.appendChild(s);
-        }
-      })();
-    </script>
     <style>
         :root {
             --primary: #667eea;
@@ -779,6 +740,12 @@
             border-radius: 20px 20px 0 0;
         }
 
+        /* Logos portrait (format carré/vertical) */
+        .game-image--portrait {
+            background-position: center center !important;
+            background-color: #0d1020;
+        }
+
         .game-image::before {
             content: '';
             position: absolute;
@@ -976,6 +943,7 @@
         .sidebar.active .sidebar-menu li:nth-child(1) { animation-delay: 0.1s; }
         .sidebar.active .sidebar-menu li:nth-child(2) { animation-delay: 0.2s; }
         .sidebar.active .sidebar-menu li:nth-child(3) { animation-delay: 0.3s; }
+        .sidebar.active .sidebar-menu li:nth-child(4) { animation-delay: 0.4s; }
 
         @keyframes menuItemSlide {
             from {
@@ -1362,6 +1330,29 @@
                 margin-bottom: 25px;
             }
 
+            .search-container {
+                margin: 0 auto 20px;
+            }
+            .search-input {
+                padding: 12px 15px 12px 42px;
+                font-size: 14px;
+            }
+            .tabs-container {
+                gap: 8px;
+                margin-bottom: 20px;
+            }
+            .tab-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+            .fav-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+                top: 8px;
+                right: 8px;
+            }
+
             .ad-container {
                 width: calc(100% - 10px);
                 max-width: 350px;
@@ -1462,6 +1453,170 @@
             background-size: 1000px 100%;
             animation: shimmer 3s infinite;
         }
+
+        /* ===== Barre de recherche ===== */
+        .search-container {
+            position: relative;
+            max-width: 480px;
+            width: 100%;
+            margin: 0 auto 25px;
+        }
+        .search-container i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.5);
+            font-size: 16px;
+            pointer-events: none;
+        }
+        .search-input {
+            width: 100%;
+            padding: 14px 20px 14px 48px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        .search-input::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(102,126,234,0.2);
+        }
+
+        /* ===== Onglets ===== */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            padding: 10px 22px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--text-primary);
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+        }
+        .tab-btn {
+            position: relative;
+        }
+        .tab-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            min-width: 18px;
+            height: 18px;
+            padding: 0 5px;
+            background: #e53e3e;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            box-shadow: 0 2px 6px rgba(229,62,62,0.5);
+        }
+
+        /* ===== Bouton favori ===== */
+        .fav-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            transition: all 0.3s ease;
+        }
+        .fav-btn:hover {
+            background: rgba(0,0,0,0.7);
+            transform: scale(1.1);
+        }
+        .fav-btn.active {
+            color: #f56565;
+            background: rgba(245,101,101,0.2);
+        }
+
+        /* ===== État vide ===== */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255,255,255,0.5);
+            font-size: 16px;
+            grid-column: 1 / -1;
+        }
+
+        /* Light mode - nouveaux éléments */
+        body.light-mode .search-input {
+            background: rgba(255,255,255,0.9);
+            color: #1e293b;
+            border-color: rgba(0,0,0,0.1);
+        }
+        body.light-mode .search-input::placeholder {
+            color: rgba(0,0,0,0.4);
+        }
+        body.light-mode .search-container i {
+            color: rgba(0,0,0,0.4);
+        }
+        body.light-mode .tab-btn {
+            background: rgba(255,255,255,0.9);
+            color: #475569;
+            border-color: rgba(0,0,0,0.1);
+        }
+        body.light-mode .tab-btn.active {
+            color: #fff;
+        }
+        body.light-mode .fav-btn {
+            background: rgba(255,255,255,0.8);
+            color: rgba(0,0,0,0.4);
+        }
+        body.light-mode .fav-btn.active {
+            color: #f56565;
+            background: rgba(245,101,101,0.15);
+        }
+        body.light-mode .empty-state {
+            color: rgba(0,0,0,0.4);
+        }
     </style>
 </head>
 <body>
@@ -1521,8 +1676,28 @@
         </div>
         <ul class="sidebar-menu">
             <li><a href="#" id="modeToggle" aria-label="Changer le mode"><i class="fas fa-moon"></i> <span id="modeText">Mode Sombre</span></a></li>
+            <li><a href="#" id="termsToggle" aria-label="Conditions d'utilisation"><i class="fas fa-file-shield"></i> <span id="termsText">Conditions d'utilisation</span></a></li>
         </ul>
     </aside>
+
+    <!-- Modal Conditions d'utilisation -->
+    <div id="termsModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:10001;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);overflow-y:auto;animation:fadeIn 0.3s ease;">
+      <div style="max-width:600px;margin:60px auto 40px;padding:30px 25px;background:linear-gradient(135deg,#0f1535 0%,#1a1a3e 100%);border-radius:20px;border:1px solid rgba(102,126,234,0.3);box-shadow:0 20px 60px rgba(0,0,0,0.5);position:relative;">
+        <button id="closeTerms" style="position:absolute;top:15px;right:15px;background:rgba(255,255,255,0.1);border:none;color:#fff;width:35px;height:35px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all 0.3s ease;" onmouseover="this.style.background='rgba(245,101,101,0.5)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">&times;</button>
+        <div style="text-align:center;margin-bottom:20px;">
+          <i class="fas fa-shield-halved" style="font-size:40px;background:linear-gradient(135deg,#667eea,#f667ea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;"></i>
+          <h2 id="termsTitle" style="font-size:22px;font-weight:800;margin-top:10px;background:linear-gradient(135deg,#667eea,#f667ea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Conditions d'utilisation</h2>
+        </div>
+        <div id="termsBody" style="color:rgba(255,255,255,0.9);font-size:14px;line-height:1.8;">
+          <p style="margin-bottom:15px;"><strong style="color:#f667ea;">&#9888; Important :</strong> Aucun prédicteur, bot ou application ne peut garantir des signaux fiables à 100%. Au mieux, la précision atteint environ <strong>85%</strong>, car nous sommes sur un casino et le hasard reste présent.</p>
+          <p style="margin-bottom:15px;"><strong style="color:#667eea;">&#128202; Notre méthode :</strong> Notre analyse repose sur l'historique des jeux et des algorithmes d'identification de tendances. Nous faisons de notre mieux pour fournir des signaux de qualité.</p>
+          <p style="margin-bottom:15px;"><strong style="color:#48bb78;">&#128176; Gestion de l'argent :</strong> Ne misez jamais la totalité de votre argent sur une seule prédiction. Faites des paris inférieurs à votre solde disponible. La prudence est votre meilleur allié.</p>
+          <p style="margin-bottom:15px;"><strong style="color:#f6ad55;">&#9989; Savoir s'arrêter :</strong> Si vous détectez des pertes consécutives, arrêtez de jouer immédiatement. Continuer dans une mauvaise série ne fera qu'aggraver vos pertes.</p>
+          <p style="margin-bottom:15px;"><strong style="color:#f56565;">&#128680; Ne soyez pas gourmand :</strong> C'est la gourmandise qui fait perdre ce que vous avez gagné. Si vos gains dépassent déjà le double de votre dépôt, retirez-les et prenez une pause.</p>
+          <p style="margin-bottom:0;"><strong style="color:#764ba2;">&#128274; En résumé :</strong> Ne vous fiez jamais totalement aux prédictions d'un quelconque prédicteur. Jouez de manière responsable, protégez votre argent et gardez toujours le contrôle.</p>
+        </div>
+      </div>
+    </div>
 
     <!-- Bouton retour en haut -->
     <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
@@ -1532,8 +1707,27 @@
     <!-- Contenu principal -->
     <main class="container">
         <h1 class="section-title" id="games-title">Nos Jeux Premium</h1>
-        <!-- Publicité Bannière Header -->
-        <div class="ad-container header-ad">
+
+        <!-- Barre de recherche -->
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher un jeu...">
+        </div>
+
+        <!-- Onglets -->
+        <div class="tabs-container" id="tabsContainer">
+            <button class="tab-btn active" data-tab="tout" id="tab-tout">Tout</button>
+            <button class="tab-btn" data-tab="win" id="tab-win">Win Game</button>
+            <button class="tab-btn" data-tab="other" id="tab-other">Autres bet</button>
+            <button class="tab-btn" data-tab="favs" id="tab-favs">Favoris</button>
+        </div>
+
+        <section>
+            <div class="games-grid" id="gamesGrid"></div>
+        </section>
+
+        <!-- Publicité Bannière en bas des jeux -->
+        <div class="ad-container footer-ad">
             <div class="ad-label">Publicité</div>
             <script>
               atOptions = {
@@ -1546,80 +1740,8 @@
             </script>
             <script src="https://www.highperformanceformat.com/80500c3d92cf6c81266e26d9d750dc82/invoke.js"></script>
         </div>
-        
-        <section>
-            <div class="games-grid" id="gamesGrid"></div>
-        </section>
     </main>
 
-    <!-- Rectangle publicitaire avec croix (affiché rarement) -->
-    <div class="ad-rectangle" id="rectangleAd">
-        <div class="ad-rectangle-header">
-            <div class="ad-rectangle-label">Publicité</div>
-            <button class="ad-close-btn" id="closeRectangleAd" title="Fermer">×</button>
-        </div>
-        <div class="ad-rectangle-content">
-            <!-- Rectangle publicitaire -->
-            <script>
-              atOptions = {
-                'key' : '80500c3d92cf6c81266e26d9d750dc82',
-                'format' : 'iframe',
-                'height' : 60,
-                'width' : 468,
-                'params' : {}
-              };
-            </script>
-            <script src="https://www.highperformanceformat.com/80500c3d92cf6c81266e26d9d750dc82/invoke.js"></script>
-        </div>
-    </div>
-
     <script src="home/js2424.js"></script>
-    
-    <!-- Script pour gérer l'affichage du rectangle publicitaire -->
-    <script>
-        // Gestion de l'affichage du rectangle publicitaire (rare)
-        function manageRectangleAd() {
-            const rectangleAd = document.getElementById('rectangleAd');
-            const closeBtn = document.getElementById('closeRectangleAd');
-            
-            // Vérifier si l'utilisateur a fermé récemment la pub
-            const lastClosed = localStorage.getItem('rectAdClosed');
-            const now = Date.now();
-            const oneDay = 24 * 60 * 60 * 1000; // 24 heures
-            
-            // Ne pas afficher si fermé dans les dernières 24h
-            if (lastClosed && (now - parseInt(lastClosed)) < oneDay) {
-                return;
-            }
-            
-            // Affichage aléatoire rare (20% de chance)
-            const randomChance = Math.random() < 0.2;
-            
-            if (randomChance) {
-                // Délai avant d'afficher (10-15 secondes)
-                setTimeout(() => {
-                    rectangleAd.classList.add('visible');
-                }, Math.random() * 5000 + 10000);
-            }
-            
-            // Gestion du bouton fermer
-            closeBtn.addEventListener('click', () => {
-                rectangleAd.classList.remove('visible');
-                localStorage.setItem('rectAdClosed', now.toString());
-            });
-            
-            // Auto-fermeture après 30 secondes
-            setTimeout(() => {
-                if (rectangleAd.classList.contains('visible')) {
-                    rectangleAd.classList.remove('visible');
-                }
-            }, 30000);
-        }
-        
-        // Initialiser après le chargement complet
-        window.addEventListener('load', () => {
-            setTimeout(manageRectangleAd, 3000);
-        });
-    </script>
 </body>
 </html>

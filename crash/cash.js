@@ -67,10 +67,13 @@ class LuckyJetPredictor {
         }
 
         this.config = {
-            particleInterval: 800,
+            particleInterval: 2000,
+            maxParticles: 10,
+            particleCount: 0,
             alertDuration: 3000,
-            loadingDuration: 2000,
-            coefficientRange: { min: 1.10, max: 8.50 } // Reduced max from higher values
+            loadingDuration: 15000,
+            cooldown: 90,
+            coefficientRange: { min: 1.10, max: 8.50 }
         };
 
         this.appState = {
@@ -79,8 +82,11 @@ class LuckyJetPredictor {
             currentCoefficient: null
         };
 
+        this.countdownInterval = null;
         this.updateLanguage(this.language);
         this.initializeApp();
+        this.restoreState();
+        if (!this.countdownInterval && !PredictionManager.canPredict()) PredictionManager.showCooldownOnButton(document.getElementById('next-round-btn'), '\ud83c\udfaf ' + (this.translations[this.language] || this.translations.fr).nextRound);
     }
 
     getLanguageFromURL() {
@@ -142,12 +148,12 @@ class LuckyJetPredictor {
     }
 
     startParticleSystem() {
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 3; i++) {
             setTimeout(() => this.createFloatingParticle(), i * 500);
         }
 
         setInterval(() => {
-            if (Math.random() > 0.6) {
+            if (Math.random() > 0.7) {
                 this.createFloatingParticle();
             }
         }, this.config.particleInterval);
@@ -211,25 +217,19 @@ class LuckyJetPredictor {
 
     handleNextRound() {
         const t = this.translations[this.language] || this.translations.fr;
+        const btn = document.getElementById('next-round-btn');
         if (this.appState.isLoading) {
             this.showAlert(`⚠️ <strong>${t.loadingMessage}</strong>`, 'warning', 2000);
             return;
         }
+        if (!PredictionManager.canPredict()) { PredictionManager.showCooldownOnButton(btn, '🎯 ' + t.nextRound); return; }
+        PredictionManager.recordPrediction();
 
-        // Déclencher une vibration
         if (navigator.vibrate) {
             navigator.vibrate(200);
         }
 
-        const now = new Date();
-
-        if (this.appState.lastDisplayedTime) {
-            this.appState.lastDisplayedTime.setMinutes(this.appState.lastDisplayedTime.getMinutes() + 1);
-        } else {
-            this.appState.lastDisplayedTime = new Date(now.getTime());
-            this.appState.lastDisplayedTime.setMinutes(this.appState.lastDisplayedTime.getMinutes() + 1);
-        }
-
+        document.getElementById('play-at-text').textContent = '';
         this.triggerPrediction();
     }
 
@@ -259,8 +259,20 @@ class LuckyJetPredictor {
                 <div class="coefficient-display">${coefficient}x</div>
             `;
 
-            this.updateTimeDisplay();
+            const playAt = Date.now() + 2 * 60 * 1000;
+            const d = new Date(playAt);
+            const hh = String(d.getHours()).padStart(2, '0');
+            const mm = String(d.getMinutes()).padStart(2, '0');
+            document.getElementById('play-at-text').textContent = 'À jouer à ' + hh + ':' + mm;
+
+            const timeDisplay = document.getElementById('time-display');
+            timeDisplay.innerHTML = `🎯 ${t.nextPrediction}: ${hh}:${mm}`;
+            timeDisplay.classList.add('show');
+
             this.appState.isLoading = false;
+
+            GameStateManager.save('crash', { coefficient: coefficient, countdownEnd: Date.now() + this.config.cooldown * 1000, playAt: playAt });
+            this.startCooldown(this.config.cooldown);
 
             this.showAlert(
                 `🎉 <strong>${t.predictionGenerated}</strong><br>${t.coefficient}: <strong>${coefficient}x</strong>`,
@@ -268,6 +280,68 @@ class LuckyJetPredictor {
                 3000
             );
         }, this.config.loadingDuration);
+    }
+
+    startCooldown(seconds) {
+        const btn = document.getElementById('next-round-btn');
+        const t = this.translations[this.language] || this.translations.fr;
+        const stopBlock = document.getElementById('stop-block');
+        const stopTimer = document.getElementById('stop-timer');
+        const stopProgress = document.getElementById('stop-progress');
+        let remaining = seconds;
+
+        stopBlock.style.display = 'block';
+        stopProgress.style.backgroundSize = '0% 100%';
+        stopTimer.textContent = (t.nextPrediction || 'Prochaine prédiction') + ' ' + remaining + ' sec';
+
+        this.countdownInterval = setInterval(() => {
+            remaining--;
+            stopTimer.textContent = (t.nextPrediction || 'Prochaine prédiction') + ' ' + remaining + ' sec';
+            const pct = ((seconds - remaining) / seconds) * 100;
+            stopProgress.style.backgroundSize = pct + '% 100%';
+            if (remaining <= 0) {
+                clearInterval(this.countdownInterval);
+                this.countdownInterval = null;
+                stopBlock.style.display = 'none';
+                if (!PredictionManager.canPredict()) {
+                    PredictionManager.showCooldownOnButton(btn, '🎯 ' + t.nextRound);
+                } else {
+                    btn.disabled = false;
+                    btn.textContent = '🎯 ' + t.nextRound;
+                }
+            }
+        }, 1000);
+    }
+
+    restoreState() {
+        const saved = GameStateManager.load('crash');
+        if (!saved) return;
+        const t = this.translations[this.language] || this.translations.fr;
+        const now = Date.now();
+        const circleContent = document.getElementById('circle-content');
+
+        if (saved.countdownEnd && saved.countdownEnd > now) {
+            circleContent.innerHTML = `<div class="coefficient-display">${saved.coefficient}x</div>`;
+            if (saved.playAt) {
+                const d = new Date(saved.playAt);
+                const hh = String(d.getHours()).padStart(2, '0');
+                const mm = String(d.getMinutes()).padStart(2, '0');
+                document.getElementById('play-at-text').textContent = 'À jouer à ' + hh + ':' + mm;
+                const timeDisplay = document.getElementById('time-display');
+                timeDisplay.innerHTML = `🎯 ${t.nextPrediction}: ${hh}:${mm}`;
+                timeDisplay.classList.add('show');
+            }
+            const remaining = Math.ceil((saved.countdownEnd - now) / 1000);
+            this.startCooldown(remaining);
+        } else if (saved.coefficient) {
+            circleContent.innerHTML = `<div class="coefficient-display">${saved.coefficient}x</div>`;
+            if (saved.playAt) {
+                const d = new Date(saved.playAt);
+                const hh = String(d.getHours()).padStart(2, '0');
+                const mm = String(d.getMinutes()).padStart(2, '0');
+                document.getElementById('play-at-text').textContent = 'À jouer à ' + hh + ':' + mm;
+            }
+        }
     }
 
     showError() {

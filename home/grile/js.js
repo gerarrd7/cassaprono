@@ -59,6 +59,7 @@ class GemsMines {
         this.updateLanguage(this.language);
         this.updateDisplay();
         this.handlePreloader();
+        if (!PredictionManager.canPredict()) PredictionManager.showCooldownOnButton(document.getElementById('predictBtn'), '🔮 ' + (this.translations[this.language] || this.translations.fr).predictions);
     }
     
     getLanguageFromURL() {
@@ -187,6 +188,13 @@ class GemsMines {
 
     async predict() {
         if (this.isPredicting) return;
+        if (!GrilleDemandManager.recordStep()) {
+            if (!PredictionManager.canPredict()) {
+                var t = this.translations[this.language] || this.translations.fr;
+                PredictionManager.showCooldownOnButton(this.predictBtn, '🔮 ' + t.predictions);
+            }
+            return;
+        }
 
         this.isPredicting = true;
         this.toggleButtons(true);

@@ -44,6 +44,7 @@ class PredictionApp {
 
         this.updateLanguage(this.language);
         this.initializeApp();
+        if (!PredictionManager.canPredict()) PredictionManager.showCooldownOnButton(document.getElementById('predictButton'), (this.translations[this.language] || this.translations.fr).predictions);
     }
 
     getLanguageFromURL() {
@@ -161,6 +162,8 @@ class PredictionApp {
         const predictButton = document.getElementById('predictButton');
         const loading = document.getElementById('prediction-loading');
         if (predictButton.disabled) return;
+        if (!PredictionManager.canPredict()) { PredictionManager.showCooldownOnButton(predictButton, this.translations[this.language].predictions || 'Prédictions'); return; }
+        PredictionManager.recordPrediction();
 
         predictButton.disabled = true;
         loading.style.display = 'flex';

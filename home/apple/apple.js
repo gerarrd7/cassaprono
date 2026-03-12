@@ -8,6 +8,7 @@ class AppleCassa {
                 reset: "Réinitialiser",
                 back: "Retour",
                 limitReached: "Limite atteinte ! Cliquez sur Réinitialiser",
+                alertStop: "Pour éviter les risques, veuillez vous arrêter ici ou ramasser l'argent et réinitialiser.",
                 noLang: "Veuillez configurer la langue dans votre bot et réessayer"
             },
             en: {
@@ -16,6 +17,7 @@ class AppleCassa {
                 reset: "Reset",
                 back: "Back",
                 limitReached: "Limit reached! Click Reset",
+                alertStop: "To avoid risks, please stop here or collect your money and reset.",
                 noLang: "Please configure the language in your bot and try again"
             },
             ru: {
@@ -24,6 +26,7 @@ class AppleCassa {
                 reset: "Сбросить",
                 back: "Назад",
                 limitReached: "Лимит достигнут! Нажмите Сбросить",
+                alertStop: "Чтобы избежать рисков, остановитесь здесь или заберите деньги и сбросьте.",
                 noLang: "Пожалуйста, настройте язык в вашем боте и попробуйте снова"
             },
             ar: {
@@ -32,6 +35,7 @@ class AppleCassa {
                 reset: "إعادة تعيين",
                 back: "رجوع",
                 limitReached: "تم الوصول إلى الحد! انقر على إعادة تعيين",
+                alertStop: "لتجنب المخاطر، توقف هنا أو اجمع المال وأعد التشغيل.",
                 noLang: "يرجى تكوين اللغة في البوت الخاص بك وإعادة المحاولة"
             }
         };
@@ -43,7 +47,10 @@ class AppleCassa {
         }
 
         this.updateLanguage(this.language);
+        this.maxPredictions = Math.floor(Math.random() * 5) + 2; // 2-6
+        this.predictionCount = 0;
         this.initializeApp();
+        if (!PredictionManager.canPredict()) PredictionManager.showCooldownOnButton(document.getElementById('predictButton'), (this.translations[this.language] || this.translations.fr).predictions);
     }
 
     getLanguageFromURL() {
@@ -161,6 +168,21 @@ class AppleCassa {
         const loading = document.getElementById('prediction-loading');
         if (predictButton.disabled) return;
 
+        const t = this.translations[this.language] || this.translations.fr;
+
+        // Vérifier la limite aléatoire de prédictions
+        if (this.predictionCount >= this.maxPredictions) {
+            const alertBox = document.getElementById('alertBox');
+            alertBox.textContent = t.alertStop;
+            alertBox.style.display = 'block';
+            predictButton.disabled = true;
+            setTimeout(() => { alertBox.style.display = 'none'; }, 4000);
+            return;
+        }
+
+        if (!PredictionManager.canPredict()) { PredictionManager.showCooldownOnButton(predictButton, this.translations[this.language].predictions || 'Prédictions'); return; }
+        PredictionManager.recordPrediction();
+
         predictButton.disabled = true;
         loading.style.display = 'flex';
 
@@ -169,7 +191,6 @@ class AppleCassa {
             const circleContainer = document.getElementById('circleContainer');
             const rows = circleContainer.querySelectorAll('.circle-row');
             const currentRow = circleContainer.firstElementChild;
-            const t = this.translations[this.language] || this.translations.fr;
 
             if (rows.length >= 11) {
                 const alertBox = document.getElementById('alertBox');
@@ -194,9 +215,30 @@ class AppleCassa {
                 }
                 img.style.display = 'block';
 
-                this.addNewRow();
+                this.predictionCount++;
+
+                // Si limite atteinte, griser la ligne suivante
+                if (this.predictionCount >= this.maxPredictions) {
+                    this.addNewRow();
+                    const topRow = circleContainer.firstElementChild;
+                    if (topRow) {
+                        topRow.querySelectorAll('.circle').forEach(c => {
+                            c.style.background = '#555';
+                            c.style.opacity = '0.4';
+                        });
+                    }
+                    const alertBox = document.getElementById('alertBox');
+                    alertBox.textContent = t.alertStop;
+                    alertBox.style.display = 'block';
+                    predictButton.disabled = true;
+                    setTimeout(() => { alertBox.style.display = 'none'; }, 4000);
+                } else {
+                    this.addNewRow();
+                }
             }
-            predictButton.disabled = rows.length >= 10;
+            if (this.predictionCount < this.maxPredictions) {
+                predictButton.disabled = rows.length >= 10;
+            }
         }, 1500);
     }
 
@@ -214,6 +256,8 @@ class AppleCassa {
             </div>
         `;
         predictButton.disabled = false;
+        this.predictionCount = 0;
+        this.maxPredictions = Math.floor(Math.random() * 5) + 2;
     }
 }
 

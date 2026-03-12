@@ -3,326 +3,201 @@ class LuckyJetPredictor {
         this.language = this.getLanguageFromURL();
         this.translations = {
             fr: {
-                title: "Lucky Jet Predictor",
-                subtitle: "Système de prédiction intelligent",
-                version: "Version 3.0 Elite",
-                multiplier: "Multiplicateur",
-                launchPrediction: "Lancer Prédiction",
-                back: "Retour",
-                readyStatus: "Système Lucky Jet prêt",
-                analyzingStatus: "Analyse des patterns Lucky Jet...",
-                predictionStatus: "Signal Lucky Jet",
-                backStatus: "Retour en cours...",
-                noLang: "Veuillez configurer la langue dans votre bot et réessayer",
-                analyzing: "Analyse"
+                subtitle: "Pr\u00e9diction intelligente",
+                version: "Version 2.0",
+                initText: "Cliquez sur\nNEXT SIGNAL",
+                loading: "Chargement...",
+                stoppedAt: "Arr\u00eat\u00e9 sur",
+                btnSignal: "NEXT SIGNAL",
+                btnWaiting: "Chargement...",
+                back: "\u2190 Retour",
+                countdown: "Prochain signal dans",
+                sec: "sec",
+                playAt: "\u00c0 jouer \u00e0",
+                noLang: "Veuillez configurer la langue dans votre bot et r\u00e9essayer"
             },
             en: {
-                title: "Lucky Jet Predictor",
-                subtitle: "Intelligent Prediction System",
-                version: "Version 3.0 Elite",
-                multiplier: "Multiplier",
-                launchPrediction: "Launch Prediction",
-                back: "Back",
-                readyStatus: "Lucky Jet System Ready",
-                analyzingStatus: "Analyzing Lucky Jet patterns...",
-                predictionStatus: "Lucky Jet Signal",
-                backStatus: "Returning...",
-                noLang: "Please configure the language in your bot and try again",
-                analyzing: "Analyzing"
+                subtitle: "Smart Prediction",
+                version: "Version 2.0",
+                initText: "Click\nNEXT SIGNAL",
+                loading: "Loading...",
+                stoppedAt: "Stopped at",
+                btnSignal: "NEXT SIGNAL",
+                btnWaiting: "Loading...",
+                back: "\u2190 Back",
+                countdown: "Next signal in",
+                sec: "sec",
+                playAt: "Play at",
+                noLang: "Please configure the language in your bot and try again"
             },
             ru: {
-                title: "Lucky Jet Predictor",
-                subtitle: "Интеллектуальная система прогнозирования",
-                version: "Версия 3.0 Элит",
-                multiplier: "Множитель",
-                launchPrediction: "Запустить прогноз",
-                back: "Назад",
-                readyStatus: "Система Lucky Jet готова",
-                analyzingStatus: "Анализ шаблонов Lucky Jet...",
-                predictionStatus: "Сигнал Lucky Jet",
-                backStatus: "Возврат...",
-                noLang: "Пожалуйста, настройте язык в вашем боте и попробуйте снова",
-                analyzing: "Анализ"
+                subtitle: "\u0423\u043c\u043d\u043e\u0435 \u043f\u0440\u043e\u0433\u043d\u043e\u0437\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435",
+                version: "\u0412\u0435\u0440\u0441\u0438\u044f 2.0",
+                initText: "\u041d\u0430\u0436\u043c\u0438\u0442\u0435\nNEXT SIGNAL",
+                loading: "\u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430...",
+                stoppedAt: "\u041e\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u043e \u043d\u0430",
+                btnSignal: "NEXT SIGNAL",
+                btnWaiting: "\u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430...",
+                back: "\u2190 \u041d\u0430\u0437\u0430\u0434",
+                countdown: "\u0421\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0439 \u0441\u0438\u0433\u043d\u0430\u043b \u0447\u0435\u0440\u0435\u0437",
+                sec: "\u0441",
+                playAt: "\u0418\u0433\u0440\u0430\u0442\u044c \u0432",
+                noLang: "\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u0442\u0435 \u044f\u0437\u044b\u043a \u0432 \u0432\u0430\u0448\u0435\u043c \u0431\u043e\u0442\u0435"
             },
             ar: {
-                title: "Lucky Jet Predictor",
-                subtitle: "نظام التنبؤ الذكي",
-                version: "الإصدار 3.0 النخبة",
-                multiplier: "المضاعف",
-                launchPrediction: "إطلاق التنبؤ",
-                back: "رجوع",
-                readyStatus: "نظام Lucky Jet جاهز",
-                analyzingStatus: "تحليل أنماط Lucky Jet...",
-                predictionStatus: "إشارة Lucky Jet",
-                backStatus: "العودة جارية...",
-                noLang: "يرجى تكوين اللغة في البوت الخاص بك وإعادة المحاولة",
-                analyzing: "تحليل"
+                subtitle: "\u0627\u0644\u062a\u0646\u0628\u0624 \u0627\u0644\u0630\u0643\u064a",
+                version: "\u0627\u0644\u0625\u0635\u062f\u0627\u0631 2.0",
+                initText: "NEXT SIGNAL\n\u0627\u0646\u0642\u0631 \u0639\u0644\u0649",
+                loading: "\u062c\u0627\u0631\u064a \u0627\u0644\u062a\u062d\u0645\u064a\u0644...",
+                stoppedAt: "\u062a\u0648\u0642\u0641 \u0639\u0646\u062f",
+                btnSignal: "NEXT SIGNAL",
+                btnWaiting: "\u062c\u0627\u0631\u064a \u0627\u0644\u062a\u062d\u0645\u064a\u0644...",
+                back: "\u0631\u062c\u0648\u0639 \u2190",
+                countdown: "\u0627\u0644\u0625\u0634\u0627\u0631\u0629 \u0627\u0644\u062a\u0627\u0644\u064a\u0629 \u062e\u0644\u0627\u0644",
+                sec: "\u062b",
+                playAt: "\u0627\u0644\u0639\u0628 \u0641\u064a",
+                noLang: "\u064a\u0631\u062c\u0649 \u062a\u0643\u0648\u064a\u0646 \u0627\u0644\u0644\u063a\u0629 \u0641\u064a \u0627\u0644\u0628\u0648\u062a"
             }
         };
 
-        // Vérifier la langue
-        if (!this.language) {
-            this.handleNoLanguage();
-            return;
-        }
+        if (!this.language) { this.handleNoLanguage(); return; }
 
-        this.predictionCircle = document.getElementById('prediction-circle');
-        this.predictionValue = document.getElementById('prediction-value');
-        this.generateBtn = document.getElementById('generate-btn');
-        this.backBtn = document.getElementById('back-btn');
-        this.btnText = document.getElementById('btn-text');
-        this.statusBar = document.getElementById('status-bar');
+        this.printSignal       = document.getElementById('print-signal');
+        this.stopBlock         = document.getElementById('stop-block');
+        this.stopTimer         = document.getElementById('stop-timer');
+        this.stopProgress      = document.getElementById('stop-progress');
+        this.getSignalBtn      = document.getElementById('get-signal');
+        this.backBtn           = document.getElementById('back-btn');
+        this.countdownInterval = null;
+        this.playAtEl          = document.getElementById('play-at-text');
+        this.COOLDOWN          = 90;
 
-        this.isGenerating = false;
-        this.timeOffset = 0;
-
-        this.updateLanguage(this.language);
-        this.initializeEventListeners();
-        this.showStatus(this.translations[this.language].readyStatus, 2500);
-
-        // Animation d'entrée cosmique
+        this.applyTranslations();
+        this.initEvents();
+        this.restoreState();
+        if (!this.countdownInterval && !PredictionManager.canPredict()) PredictionManager.showCooldownOnButton(this.getSignalBtn, this.t().btnSignal);
         document.body.style.opacity = '0';
-        document.body.style.transform = 'translateY(30px) scale(0.95)';
-        document.body.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-        setTimeout(() => {
-            document.body.style.opacity = '1';
-            document.body.style.transform = 'translateY(0) scale(1)';
-        }, 150);
+        document.body.style.transition = 'opacity 0.8s ease';
+        setTimeout(function() { document.body.style.opacity = '1'; }, 150);
     }
 
+    t() { return this.translations[this.language] || this.translations.fr; }
+
     getLanguageFromURL() {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get('lang');
+        return new URLSearchParams(window.location.search).get('lang');
     }
 
     handleNoLanguage() {
-        document.body.innerHTML = `
-            <div class="status-bar show" id="status-bar">${this.translations.fr.noLang}</div>
-        `;
-        setTimeout(() => {
-            window.location.href = "https://t.me/PREDBOX2ROBOT?start=user22476018";
-            setTimeout(() => {
-                window.close();
-            }, 500);
+        var msg = this.translations.fr.noLang;
+        document.body.innerHTML = '<div style="color:white;text-align:center;padding:2rem;position:relative;z-index:10;">' + msg + '</div>';
+        setTimeout(function() {
+            window.location.href = 'https://t.me/PREDBOX2ROBOT?start=user22476018';
+            setTimeout(function() { window.close(); }, 500);
         }, 3000);
     }
 
-    updateLanguage(lang) {
-        document.documentElement.lang = lang;
-        const t = this.translations[lang] || this.translations.fr; // Français par défaut
-        document.getElementById('page-title').textContent = t.title;
-        document.getElementById('logo').textContent = t.title;
-        document.getElementById('subtitle').textContent = t.subtitle;
-        document.getElementById('version').textContent = t.version;
-        document.getElementById('prediction-label').textContent = t.multiplier;
-        document.getElementById('btn-text').textContent = `🚀 ${t.launchPrediction}`;
-        document.getElementById('back-btn').textContent = `← ${t.back}`;
+    applyTranslations() {
+        var t = this.t();
+        document.documentElement.lang = this.language;
+        var subtitleEl = document.getElementById('subtitle');
+        var versionEl  = document.getElementById('version');
+        var initEl     = document.getElementById('init-text');
+        if (subtitleEl) subtitleEl.textContent = t.subtitle;
+        if (versionEl)  versionEl.textContent  = t.version;
+        if (initEl)     initEl.textContent      = t.initText;
+        this.getSignalBtn.textContent = t.btnSignal;
+        this.backBtn.textContent      = t.back;
     }
 
-    initializeEventListeners() {
-        this.generateBtn.addEventListener('click', () => {
-            if (navigator.vibrate) {
-                navigator.vibrate([100, 50, 100]);
-            }
-            this.generateSignal();
+    initEvents() {
+        var self = this;
+        this.getSignalBtn.addEventListener('click', function() {
+            if (navigator.vibrate) navigator.vibrate([80, 40, 80]);
+            self.onSignalClick();
         });
-
-        this.backBtn.addEventListener('click', () => {
-            if (navigator.vibrate) {
-                navigator.vibrate(150);
+        this.backBtn.addEventListener('click', function() {
+            if (navigator.vibrate) navigator.vibrate(100);
+            if (window.history.length > 1) window.history.back();
+            else {
+                window.location.href = 'https://t.me/PREDBOX2ROBOT?start=user22476018';
+                setTimeout(function() { window.close(); }, 500);
             }
-            this.goBack();
         });
     }
 
-    async generateSignal() {
-        if (this.isGenerating) return;
-
-        const t = this.translations[this.language] || this.translations.fr;
-        this.isGenerating = true;
-        this.setLoadingState(true);
-        this.showStatus(t.analyzingStatus);
-
-        await this.simulateAdvancedAnalysis();
-
-        const coefficient = this.calculateLuckyJetCoefficient();
-        this.displayResult(coefficient);
-
-        this.timeOffset += 1; // Changed to 1 minute interval
-        const currentTime = new Date();
-        currentTime.setMinutes(currentTime.getMinutes() + this.timeOffset);
-        const formattedTime = currentTime.toLocaleTimeString(this.language || 'fr-FR', {
-            hour: '2-digit',
-            minute: '2-digit'
-        });
-
-        this.setLoadingState(false);
-        this.isGenerating = false;
-        this.showStatus(`${t.predictionStatus}: ${coefficient}x ${t.predictionStatus.toLowerCase().includes('signal') ? 'predicted at' : 'prévu à'} ${formattedTime}`, 4000);
+    onSignalClick() {
+        if (!PredictionManager.canPredict()) { PredictionManager.showCooldownOnButton(this.getSignalBtn, this.t().btnSignal); return; }
+        var t    = this.t();
+        var self = this;
+        this.getSignalBtn.disabled    = true;
+        this.getSignalBtn.textContent = t.btnWaiting;
+        this.printSignal.innerHTML = '<span class="loading-text">' + t.loading + '</span>';
+        if (self.playAtEl) self.playAtEl.textContent = '';
+        setTimeout(function() {
+            PredictionManager.recordPrediction();
+            var signal = standardCoefficient();
+            var playAt = Date.now() + 2 * 60 * 1000;
+            var d = new Date(playAt);
+            var hhmm = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
+            self.printSignal.innerHTML =
+                '<div class="signal-label">' + t.stoppedAt + '</div>' +
+                '<div class="signal-value">' + signal + 'x</div>';
+            if (self.playAtEl) self.playAtEl.textContent = t.playAt + ' ' + hhmm;
+            GameStateManager.save('luckyjet', { coefficient: signal, countdownEnd: Date.now() + self.COOLDOWN * 1000, playAt: playAt });
+            self.startCooldown(self.COOLDOWN);
+        }, 15000);
     }
 
-    async simulateAdvancedAnalysis() {
-        const t = this.translations[this.language] || this.translations.fr;
-        const stages = [
-            { text: t.analyzing.substring(0, 4), duration: 500 },
-            { text: t.analyzing.substring(0, 5), duration: 700 },
-            { text: t.analyzing.substring(0, 6), duration: 600 },
-            { text: t.analyzing.substring(0, 5), duration: 500 }
-        ];
+    showPlayAt(saved) {
+        if (!this.playAtEl || !saved || !saved.playAt) return;
+        var d = new Date(saved.playAt);
+        this.playAtEl.textContent = this.t().playAt + ' ' + ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
+    }
 
-        for (let stage of stages) {
-            this.predictionValue.innerHTML = `
-                ${stage.text}
-                <div class="loading-dots" style="margin-top: 10px;">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            `;
-            await this.delay(stage.duration);
+    restoreState() {
+        var saved = GameStateManager.load('luckyjet');
+        if (!saved) return;
+        var t = this.t();
+        var now = Date.now();
+        if (saved.countdownEnd && saved.countdownEnd > now) {
+            this.printSignal.innerHTML =
+                '<div class="signal-label">' + t.stoppedAt + '</div>' +
+                '<div class="signal-value">' + saved.coefficient + 'x</div>';
+            this.showPlayAt(saved);
+            var remaining = Math.ceil((saved.countdownEnd - now) / 1000);
+            this.startCooldown(remaining);
+        } else if (saved.coefficient) {
+            this.printSignal.innerHTML =
+                '<div class="signal-label">' + t.stoppedAt + '</div>' +
+                '<div class="signal-value">' + saved.coefficient + 'x</div>';
+            this.showPlayAt(saved);
         }
     }
 
-    calculateLuckyJetCoefficient() {
-        const random = Math.random();
-        let coefficient;
-
-        if (random < 0.65) {
-            // Low multipliers (1.00x - 2.50x) - 65%
-            coefficient = 1.00 + Math.random() * 1.50;
-        } else if (random < 0.85) {
-            // Medium multipliers (2.50x - 5.00x) - 20%
-            coefficient = 2.50 + Math.random() * 2.50;
-        } else if (random < 0.95) {
-            // High multipliers (5.00x - 15.00x) - 10%
-            coefficient = 5.00 + Math.random() * 10.00;
-        } else if (random < 0.99) {
-            // Very high multipliers (15.00x - 50.00x) - 4%
-            coefficient = 15.00 + Math.random() * 35.00;
-        } else {
-            // Mega multipliers (50.00x - 200.00x) - 1%
-            coefficient = 50.00 + Math.random() * 150.00;
-        }
-
-        return coefficient.toFixed(2);
-    }
-
-    displayResult(coefficient) {
-        this.predictionValue.textContent = `${coefficient}x`;
-        this.predictionValue.style.transform = 'scale(1.15)';
-        this.predictionValue.style.filter = 'drop-shadow(0 0 20px rgba(255, 107, 53, 0.8))';
-
-        if (parseFloat(coefficient) > 10) {
-            this.celebrateHighMultiplier();
-        }
-
-        setTimeout(() => {
-            this.predictionValue.style.transform = 'scale(1)';
-            this.predictionValue.style.filter = 'drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3))';
-        }, 400);
-    }
-
-    celebrateHighMultiplier() {
-        const sparkles = ['✨', '💫', '⭐', '🌟'];
-        for (let i = 0; i < 6; i++) {
-            setTimeout(() => {
-                this.createSparkle(sparkles[Math.floor(Math.random() * sparkles.length)]);
-            }, i * 100);
-        }
-    }
-
-    createSparkle(emoji) {
-        const sparkle = document.createElement('div');
-        sparkle.textContent = emoji;
-        sparkle.style.position = 'absolute';
-        sparkle.style.fontSize = '2rem';
-        sparkle.style.left = Math.random() * 100 + '%';
-        sparkle.style.top = Math.random() * 100 + '%';
-        sparkle.style.animation = 'sparkleFloat 2s ease-out forwards';
-        sparkle.style.pointerEvents = 'none';
-        sparkle.style.zIndex = '1000';
-
-        this.predictionCircle.appendChild(sparkle);
-
-        setTimeout(() => {
-            sparkle.remove();
-        }, 2000);
-    }
-
-    setLoadingState(loading) {
-        const t = this.translations[this.language] || this.translations.fr;
-        if (loading) {
-            this.predictionCircle.classList.add('loading');
-            this.generateBtn.disabled = true;
-            this.btnText.innerHTML = `
-                🛸 ${t.analyzing}
-                <div class="loading-dots" style="margin-left: 8px">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            `;
-        } else {
-            this.predictionCircle.classList.remove('loading');
-            this.generateBtn.disabled = false;
-            this.btnText.textContent = `🚀 ${t.launchPrediction}`;
-        }
-    }
-
-    showStatus(message, duration = 0) {
-        this.statusBar.textContent = message;
-        this.statusBar.classList.add('show');
-
-        if (duration > 0) {
-            setTimeout(() => {
-                this.statusBar.classList.remove('show');
-            }, duration);
-        }
-    }
-
-    goBack() {
-        const t = this.translations[this.language] || this.translations.fr;
-        this.showStatus(t.backStatus, 1200);
-        setTimeout(() => {
-            if (window.history.length > 1) {
-                window.history.back();
-            } else {
-                window.location.href = "https://t.me/PREDBOX2ROBOT?start=user22476018";
-                setTimeout(() => {
-                    window.close();
-                }, 500);
+    startCooldown(seconds) {
+        var self      = this;
+        var t         = this.t();
+        var remaining = seconds;
+        this.stopBlock.classList.remove('deactivate');
+        this.stopProgress.style.backgroundSize = '0% 100%';
+        this.stopTimer.textContent = t.countdown + ' ' + remaining + ' ' + t.sec;
+        this.countdownInterval = setInterval(function() {
+            remaining--;
+            self.stopTimer.textContent = t.countdown + ' ' + remaining + ' ' + t.sec;
+            var pct = ((seconds - remaining) / seconds) * 100;
+            self.stopProgress.style.backgroundSize = pct + '% 100%';
+            if (remaining <= 0) {
+                clearInterval(self.countdownInterval);
+                self.stopBlock.classList.add('deactivate');
+                if (!PredictionManager.canPredict()) {
+                    PredictionManager.showCooldownOnButton(self.getSignalBtn, t.btnSignal);
+                } else {
+                    self.getSignalBtn.disabled    = false;
+                    self.getSignalBtn.textContent = t.btnSignal;
+                }
             }
-        }, 600);
-    }
-
-    delay(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
+        }, 1000);
     }
 }
 
-// CSS pour l'animation des étincelles
-const sparkleCSS = `
-    @keyframes sparkleFloat {
-        0% {
-            opacity: 0;
-            transform: translateY(0) scale(0);
-        }
-        50% {
-            opacity: 1;
-            transform: translateY(-20px) scale(1);
-        }
-        100% {
-            opacity: 0;
-            transform: translateY(-40px) scale(0);
-        }
-    }
-`;
-
-const style = document.createElement('style');
-style.textContent = sparkleCSS;
-document.head.appendChild(style);
-
-// Initialisation de l'application
-document.addEventListener('DOMContentLoaded', () => {
-    new LuckyJetPredictor();
-});
+document.addEventListener('DOMContentLoaded', function() { new LuckyJetPredictor(); });

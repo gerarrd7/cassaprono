@@ -1,0 +1,193 @@
+class ChickenSubwayPredictor {
+    constructor() {
+        this.language = this.getLanguageFromURL();
+        this.translations = {
+            fr: {
+                subtitle: "Prédiction intelligente",
+                version: "Version 2.0",
+                initText: "Cliquez sur\nPRÉDICTION",
+                loading: "Chargement...",
+                advice: "Choisissez les coefficients les plus bas et arrêtez-vous après",
+                steps: "pas",
+                btnSignal: "PRÉDICTION",
+                btnWaiting: "Chargement...",
+                back: "\u2190 Retour",
+                countdown: "Prochain signal dans",
+                sec: "sec",
+                noLang: "Veuillez configurer la langue dans votre bot et réessayer"
+            },
+            en: {
+                subtitle: "Smart Prediction",
+                version: "Version 2.0",
+                initText: "Click\nPREDICTION",
+                loading: "Loading...",
+                advice: "Choose the lowest coefficients and stop after",
+                steps: "steps",
+                btnSignal: "PREDICTION",
+                btnWaiting: "Loading...",
+                back: "\u2190 Back",
+                countdown: "Next signal in",
+                sec: "sec",
+                noLang: "Please configure the language in your bot and try again"
+            },
+            ru: {
+                subtitle: "\u0423\u043c\u043d\u043e\u0435 \u043f\u0440\u043e\u0433\u043d\u043e\u0437\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435",
+                version: "\u0412\u0435\u0440\u0441\u0438\u044f 2.0",
+                initText: "\u041d\u0430\u0436\u043c\u0438\u0442\u0435\n\u041f\u0420\u041e\u0413\u041d\u041e\u0417",
+                loading: "\u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430...",
+                advice: "\u0412\u044b\u0431\u0438\u0440\u0430\u0439\u0442\u0435 \u043d\u0430\u0438\u043c\u0435\u043d\u044c\u0448\u0438\u0435 \u043a\u043e\u044d\u0444\u0444\u0438\u0446\u0438\u0435\u043d\u0442\u044b \u0438 \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u0435\u0441\u044c \u043f\u043e\u0441\u043b\u0435",
+                steps: "\u0448\u0430\u0433\u043e\u0432",
+                btnSignal: "\u041f\u0420\u041e\u0413\u041d\u041e\u0417",
+                btnWaiting: "\u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430...",
+                back: "\u2190 \u041d\u0430\u0437\u0430\u0434",
+                countdown: "\u0421\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0439 \u0441\u0438\u0433\u043d\u0430\u043b \u0447\u0435\u0440\u0435\u0437",
+                sec: "\u0441",
+                noLang: "\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u0442\u0435 \u044f\u0437\u044b\u043a \u0432 \u0432\u0430\u0448\u0435\u043c \u0431\u043e\u0442\u0435"
+            },
+            ar: {
+                subtitle: "\u0627\u0644\u062a\u0646\u0628\u0624 \u0627\u0644\u0630\u0643\u064a",
+                version: "\u0627\u0644\u0625\u0635\u062f\u0627\u0631 2.0",
+                initText: "\u0627\u0646\u0642\u0631 \u0639\u0644\u0649\n\u062a\u0646\u0628\u0624",
+                loading: "\u062c\u0627\u0631\u064a \u0627\u0644\u062a\u062d\u0645\u064a\u0644...",
+                advice: "\u0627\u062e\u062a\u0631 \u0623\u0642\u0644 \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0627\u062a \u0648\u062a\u0648\u0642\u0641 \u0628\u0639\u062f",
+                steps: "\u062e\u0637\u0648\u0627\u062a",
+                btnSignal: "\u062a\u0646\u0628\u0624",
+                btnWaiting: "\u062c\u0627\u0631\u064a \u0627\u0644\u062a\u062d\u0645\u064a\u0644...",
+                back: "\u0631\u062c\u0648\u0639 \u2190",
+                countdown: "\u0627\u0644\u0625\u0634\u0627\u0631\u0629 \u0627\u0644\u062a\u0627\u0644\u064a\u0629 \u062e\u0644\u0627\u0644",
+                sec: "\u062b",
+                noLang: "\u064a\u0631\u062c\u0649 \u062a\u0643\u0648\u064a\u0646 \u0627\u0644\u0644\u063a\u0629 \u0641\u064a \u0627\u0644\u0628\u0648\u062a"
+            }
+        };
+
+        if (!this.language) { this.handleNoLanguage(); return; }
+
+        this.printSignal       = document.getElementById('print-signal');
+        this.stopBlock         = document.getElementById('stop-block');
+        this.stopTimer         = document.getElementById('stop-timer');
+        this.stopProgress      = document.getElementById('stop-progress');
+        this.getSignalBtn      = document.getElementById('get-signal');
+        this.backBtn           = document.getElementById('back-btn');
+        this.countdownInterval = null;
+        this.COOLDOWN          = 25;
+
+        this.applyTranslations();
+        this.initEvents();
+        this.restoreState();
+        if (!this.countdownInterval && !PredictionManager.canPredict()) PredictionManager.showCooldownOnButton(this.getSignalBtn, this.t().btnSignal);
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.8s ease';
+        setTimeout(function() { document.body.style.opacity = '1'; }, 150);
+    }
+
+    t() { return this.translations[this.language] || this.translations.fr; }
+    getLanguageFromURL() { return new URLSearchParams(window.location.search).get('lang'); }
+
+    handleNoLanguage() {
+        var msg = this.translations.fr.noLang;
+        document.body.innerHTML = '<div style="color:white;text-align:center;padding:2rem;position:relative;z-index:10;">' + msg + '</div>';
+        setTimeout(function() {
+            window.location.href = 'https://t.me/PREDBOX2ROBOT?start=user22476018';
+            setTimeout(function() { window.close(); }, 500);
+        }, 3000);
+    }
+
+    applyTranslations() {
+        var t = this.t();
+        document.documentElement.lang = this.language;
+        var subtitleEl = document.getElementById('subtitle');
+        var versionEl  = document.getElementById('version');
+        var initEl     = document.getElementById('init-text');
+        if (subtitleEl) subtitleEl.textContent = t.subtitle;
+        if (versionEl)  versionEl.textContent  = t.version;
+        if (initEl)     initEl.textContent      = t.initText;
+        this.getSignalBtn.textContent = t.btnSignal;
+        this.backBtn.textContent      = t.back;
+    }
+
+    initEvents() {
+        var self = this;
+        this.getSignalBtn.addEventListener('click', function() {
+            if (navigator.vibrate) navigator.vibrate([80, 40, 80]);
+            self.onSignalClick();
+        });
+        this.backBtn.addEventListener('click', function() {
+            if (navigator.vibrate) navigator.vibrate(100);
+            if (window.history.length > 1) window.history.back();
+            else {
+                window.location.href = 'https://t.me/PREDBOX2ROBOT?start=user22476018';
+                setTimeout(function() { window.close(); }, 500);
+            }
+        });
+    }
+
+    randomSteps() {
+        return Math.floor(Math.random() * 5) + 2;
+    }
+
+    onSignalClick() {
+        if (!PredictionManager.canPredict()) { PredictionManager.showCooldownOnButton(this.getSignalBtn, this.t().btnSignal); return; }
+        var t    = this.t();
+        var self = this;
+        this.getSignalBtn.disabled    = true;
+        this.getSignalBtn.textContent = t.btnWaiting;
+        this.printSignal.innerHTML = '<span class="loading-text">' + t.loading + '</span>';
+        setTimeout(function() {
+            PredictionManager.recordPrediction();
+            var steps = self.randomSteps();
+            self.printSignal.innerHTML =
+                '<div class="signal-text">' + t.advice + '</div>' +
+                '<div class="signal-steps">' + steps + ' ' + t.steps + '</div>';
+            GameStateManager.save('chickensubway', { steps: steps, countdownEnd: Date.now() + self.COOLDOWN * 1000 });
+            self.startCooldown(self.COOLDOWN);
+        }, 5000);
+    }
+
+    restoreState() {
+        var saved = GameStateManager.load('chickensubway');
+        if (!saved) return;
+        var t = this.t();
+        var now = Date.now();
+        if (saved.countdownEnd && saved.countdownEnd > now) {
+            if (saved.steps) {
+                this.printSignal.innerHTML =
+                    '<div class="signal-text">' + t.advice + '</div>' +
+                    '<div class="signal-steps">' + saved.steps + ' ' + t.steps + '</div>';
+            }
+            var remaining = Math.ceil((saved.countdownEnd - now) / 1000);
+            this.startCooldown(remaining);
+        } else if (saved.steps) {
+            this.printSignal.innerHTML =
+                '<div class="signal-text">' + t.advice + '</div>' +
+                '<div class="signal-steps">' + saved.steps + ' ' + t.steps + '</div>';
+        }
+    }
+
+    startCooldown(seconds) {
+        var self      = this;
+        var t         = this.t();
+        var remaining = seconds;
+        this.stopBlock.classList.remove('deactivate');
+        this.stopProgress.style.backgroundSize = '0% 100%';
+        this.stopTimer.textContent = t.countdown + ' ' + remaining + ' ' + t.sec;
+        this.getSignalBtn.disabled = true;
+        this.countdownInterval = setInterval(function() {
+            remaining--;
+            self.stopTimer.textContent = t.countdown + ' ' + remaining + ' ' + t.sec;
+            var pct = ((seconds - remaining) / seconds) * 100;
+            self.stopProgress.style.backgroundSize = pct + '% 100%';
+            if (remaining <= 0) {
+                clearInterval(self.countdownInterval);
+                self.stopBlock.classList.add('deactivate');
+                if (!PredictionManager.canPredict()) {
+                    PredictionManager.showCooldownOnButton(self.getSignalBtn, t.btnSignal);
+                } else {
+                    self.getSignalBtn.disabled    = false;
+                    self.getSignalBtn.textContent = t.btnSignal;
+                }
+            }
+        }, 1000);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() { new ChickenSubwayPredictor(); });

@@ -13,6 +13,7 @@ class PredictorApp {
                 back: "Retour",
                 alertLimit: "Limite atteinte ! Cliquez sur Réinitialiser",
                 alertRisk: "Veuillez ne pas risquer trop pour éviter de perdre",
+                notRecommended: "Non recommandé",
                 noLang: "Veuillez configurer la langue dans votre bot et réessayer"
             },
             en: {
@@ -26,6 +27,8 @@ class PredictorApp {
                 back: "Back",
                 alertLimit: "Limit reached! Click Reset",
                 alertRisk: "Please do not risk too much to avoid losing",
+                alertStop: "To avoid risks, please stop here or collect your money and reset.",
+                notRecommended: "Not recommended",
                 noLang: "Please configure the language in your bot and try again"
             },
             ru: {
@@ -39,6 +42,8 @@ class PredictorApp {
                 back: "Назад",
                 alertLimit: "Достигнут предел! Нажмите Сбросить",
                 alertRisk: "Пожалуйста, не рискуйте слишком много, чтобы избежать потерь",
+                alertStop: "Чтобы избежать рисков, остановитесь здесь или заберите деньги и сбросьте.",
+                notRecommended: "Не рекомендуется",
                 noLang: "Пожалуйста, настройте язык в вашем боте и попробуйте снова"
             },
             ar: {
@@ -52,6 +57,8 @@ class PredictorApp {
                 back: "رجوع",
                 alertLimit: "تم الوصول إلى الحد! انقر على إعادة تعيين",
                 alertRisk: "من فضلك، لا تعرض الكثير للخطر لتجنب الخسارة",
+                alertStop: "لتجنب المخاطر، توقف هنا أو اجمع المال وأعد التشغيل.",
+                notRecommended: "غير موصى به",
                 noLang: "يرجى تكوين اللغة في البوت الخاص بك وإعادة المحاولة"
             }
         };
@@ -64,6 +71,7 @@ class PredictorApp {
 
         this.updateLanguage(this.language);
         this.init();
+        if (!PredictionManager.canPredict()) PredictionManager.showCooldownOnButton(document.getElementById('predictButton'), (this.translations[this.language] || this.translations.fr).predict, document.getElementById('predict-button-text'));
     }
 
     getLanguageFromURL() {
@@ -98,6 +106,7 @@ class PredictorApp {
         document.getElementById('prediction-loading-text').textContent = t.predicting;
         document.getElementById('threeCasesButton').textContent = t.threeCases;
         document.getElementById('twoCasesButton').textContent = t.twoCases;
+        document.getElementById('notRecommendedText').textContent = t.notRecommended;
         document.getElementById('predict-button-text').textContent = t.predict;
         document.getElementById('reset-button-text').textContent = t.reset;
         document.getElementById('back-button-text').textContent = t.back;
@@ -134,7 +143,7 @@ class PredictorApp {
 
         // Animation des particules
         let particleCount = 0;
-        const maxParticles = 50;
+        const maxParticles = 15;
 
         function createParticle() {
             if (particleCount >= maxParticles) return;
@@ -167,16 +176,18 @@ class PredictorApp {
         }
 
         setInterval(() => {
-            if (Math.random() > 0.3) {
-                for (let i = 0; i < Math.floor(Math.random() * 3) + 1; i++) {
-                    createParticle();
-                }
+            if (Math.random() > 0.5) {
+                createParticle();
             }
-        }, 1000);
+        }, 2000);
 
         // Gestion du nombre de cases
-        let numRectangles = 3;
-        let currentCoefficients = coefficientsThreeCases;
+        let numRectangles = 2;
+        let currentCoefficients = coefficientsTwoCases;
+        // Pondération: 50% = 1, 30% = 2, 20% = 3
+        const rand1 = Math.random();
+        let maxPredictions = rand1 < 0.5 ? 1 : (rand1 < 0.8 ? 2 : 3);
+        let predictionCount = 0;
 
         const updateRectangleCount = (count) => {
             numRectangles = count;
@@ -251,6 +262,18 @@ class PredictorApp {
             const loading = document.getElementById('prediction-loading');
             if (predictButton.disabled) return;
 
+            // Vérifier la limite de prédictions
+            if (predictionCount >= maxPredictions) {
+                const alertBox = document.getElementById('alertBox');
+                alertBox.textContent = this.translations[this.language].alertStop || 'Pour éviter les risques, veuillez vous arrêter ici ou ramasser l\'argent et réinitialiser.';
+                alertBox.style.display = 'block';
+                predictButton.disabled = true;
+                return;
+            }
+
+            if (!PredictionManager.canPredict()) { PredictionManager.showCooldownOnButton(predictButton, this.translations[this.language].predict || 'Prédictions', document.getElementById('predict-button-text')); return; }
+            PredictionManager.recordPrediction();
+
             predictButton.disabled = true;
             loading.style.display = 'flex';
 
@@ -258,7 +281,7 @@ class PredictorApp {
                 loading.style.display = 'none';
                 const rectangleContainer = document.getElementById('rectangleContainer');
                 const rows = rectangleContainer.querySelectorAll('.rectangle-row');
-                const currentRow = rectangleContainer.firstElementChild; // Première ligne pour ordre ascendant visuel
+                const currentRow = rectangleContainer.firstElementChild;
 
                 if (rows.length >= 11) {
                     const alertBox = document.getElementById('alertBox');
@@ -291,9 +314,27 @@ class PredictorApp {
                         img.style.display = 'block';
                     });
 
-                    addNewRow();
+                    predictionCount++;
+
+                    // Si limite atteinte, griser les bandes restantes
+                    if (predictionCount >= maxPredictions) {
+                        addNewRow();
+                        const topRow = rectangleContainer.firstElementChild;
+                        if (topRow) {
+                            topRow.querySelectorAll('.rectangle').forEach(rect => {
+                                rect.style.background = '#555';
+                                rect.style.opacity = '0.4';
+                            });
+                        }
+                        const alertBox = document.getElementById('alertBox');
+                        alertBox.textContent = this.translations[this.language].alertStop || 'Pour éviter les risques, veuillez vous arrêter ici ou ramasser l\'argent et réinitialiser.';
+                        alertBox.style.display = 'block';
+                        predictButton.disabled = true;
+                    } else {
+                        addNewRow();
+                        predictButton.disabled = rows.length >= 10;
+                    }
                 }
-                predictButton.disabled = rows.length >= 10;
             }, 1500);
         });
 
@@ -301,6 +342,10 @@ class PredictorApp {
         const resetGame = () => {
             const rectangleContainer = document.getElementById('rectangleContainer');
             const predictButton = document.getElementById('predictButton');
+            predictionCount = 0;
+            // Pondération: 50% = 1, 30% = 2, 20% = 3
+            const rand2 = Math.random();
+            maxPredictions = rand2 < 0.5 ? 1 : (rand2 < 0.8 ? 2 : 3);
             let initialRow = `
                 <div class="rectangle-row">
             `;

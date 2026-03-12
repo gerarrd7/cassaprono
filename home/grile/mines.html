@@ -4,37 +4,6 @@
     <meta charset="UTF-8">
     <title id="page-title">Cassa Gems Mines - Professional Edition</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- Bannière publicitaire -->
-    <script>
-      atOptions = {
-        'key' : '80500c3d92cf6c81266e26d9d750dc82',
-        'format' : 'iframe',
-        'height' : 60,
-        'width' : 468,
-        'params' : {}
-      };
-    </script>
-    <script src="https://www.highperformanceformat.com/80500c3d92cf6c81266e26d9d750dc82/invoke.js"></script>
-    
-    <!-- Popunder (affichage limité - 3 fois par heure) -->
-    <script>
-      (function() {
-        const now = Date.now();
-        const oneHour = 60 * 60 * 1000;
-        const maxPopunders = 6;
-        
-        let popunderHistory = JSON.parse(localStorage.getItem('popunderHistory') || '[]');
-        popunderHistory = popunderHistory.filter(time => (now - time) < oneHour);
-        
-        if (popunderHistory.length < maxPopunders) {
-          popunderHistory.push(now);
-          localStorage.setItem('popunderHistory', JSON.stringify(popunderHistory));
-          var s = document.createElement('script');
-          s.src = 'https://pl28531604.effectivegatecpm.com/a3/1b/17/a31b171f8f08db3e985757183e37a5b5.js';
-          document.head.appendChild(s);
-        }
-      })();
-    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Favicon temporaire en ligne -->
     <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💭</text></svg>" type="image/x-icon">
@@ -71,7 +40,7 @@
             background: var(--background-gradient);
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text-primary);
-            overflow-x: hidden;
+            overflow: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -80,7 +49,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            height: 100vh;
             position: relative;
         }
 
@@ -552,51 +521,7 @@
             <h1 class="title" id="title">Gems Mines</h1>
             <p class="subtitle" id="subtitle">Prédicteur de mines professionnel</p>
         </div>
-        
-        <!-- Publicité Bannière -->
-        <div class="ad-banner" style="margin: 15px auto; padding: 12px; text-align: center; background: rgba(255,255,255,0.12); border-radius: 12px; border: 1px solid rgba(255,255,255,0.25); width: calc(100% - 20px); max-width: 490px; box-sizing: border-box; overflow: hidden; position: relative; z-index: 10;">
-            <div style="font-size: 9px; color: rgba(255,255,255,0.5); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;">Publicité</div>
-            <div style="display: flex; justify-content: center; align-items: center; overflow: hidden; max-width: 100%;">
-                <script>
-                  atOptions = {
-                    'key' : '80500c3d92cf6c81266e26d9d750dc82',
-                    'format' : 'iframe',
-                    'height' : 60,
-                    'width' : 468,
-                    'params' : {}
-                  };
-                </script>
-                <script src="https://www.highperformanceformat.com/80500c3d92cf6c81266e26d9d750dc82/invoke.js"></script>
-            </div>
-        </div>
-        <style>
-          .ad-banner {
-              transform: scale(1);
-              transform-origin: center top;
-          }
-          .ad-banner iframe {
-              max-width: 100% !important;
-              transform-origin: center center;
-          }
-          @media (max-width: 500px) {
-              .ad-banner {
-                  transform: scale(0.85);
-                  margin: 10px auto !important;
-                  padding: 10px !important;
-              }
-          }
-          @media (max-width: 400px) {
-              .ad-banner {
-                  transform: scale(0.72);
-                  margin: 5px auto !important;
-              }
-          }
-          @media (max-width: 350px) {
-              .ad-banner {
-                  transform: scale(0.65);
-              }
-          }
-        </style>
+
 
         <div class="game-section">
             <div class="grid" id="gameGrid"></div>
@@ -626,6 +551,7 @@
             Retour
         </button>
     </div>
+    <script src="../shared.js"></script>
     <script src="js.js">
     </script>
 </body>

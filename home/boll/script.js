@@ -48,6 +48,7 @@ class ThimbleCassa {
 
         this.updateLanguage(this.language);
         this.initialize();
+        if (!PredictionManager.canPredict()) PredictionManager.showCooldownOnButton(document.getElementById('predictBtn'), (this.translations[this.language] || this.translations.fr).predictButton);
     }
 
     getLanguageFromURL() {
@@ -84,7 +85,7 @@ class ThimbleCassa {
     initialize() {
         // Animation des particules
         let particleCount = 0;
-        const maxParticles = 40;
+        const maxParticles = 12;
 
         function createParticle() {
             if (particleCount >= maxParticles) return;
@@ -115,12 +116,10 @@ class ThimbleCassa {
         }
 
         setInterval(() => {
-            if (Math.random() > 0.4) {
-                for (let i = 0; i < Math.floor(Math.random() * 2) + 1; i++) {
-                    createParticle();
-                }
+            if (Math.random() > 0.5) {
+                createParticle();
             }
-        }, 1200);
+        }, 2500);
 
         // Afficher la notification initiale
         const notification = document.getElementById('notification');
@@ -131,6 +130,8 @@ class ThimbleCassa {
 
         // Fonction de prédiction
         const predict = () => {
+            if (!PredictionManager.canPredict()) { PredictionManager.showCooldownOnButton(document.getElementById('predictBtn'), this.translations[this.language].predictButton || 'Prédiction'); return; }
+            PredictionManager.recordPrediction();
             const selectedBet = document.querySelector('.bet-btn[selected]');
             const loader = document.getElementById('loader');
             const overlay = document.getElementById('overlay');
